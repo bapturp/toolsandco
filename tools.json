@@ -1,0 +1,29 @@
+[
+  {
+    "brand": "Makita",
+    "model": "DHP482RFX9",
+    "picture_url": "https://m.media-amazon.com/images/I/614bq9A7+oL._AC_SL1000_.jpg",
+    "description": "Makita DHP482RFX9 Perceuse-visseuse à percussion, sans fil, 18 V/3,0 Ah, avec 2 batteries et chargeur dans un coffret en aluminium, 96 pièces accessoires",
+    "price_per_day": 10,
+    "tool_type": "Drill",
+    "use_case": ["Woodwork", "Drilling"]
+  },
+  {
+    "brand": "Dexter",
+    "model": "8 screwdrivers",
+    "picture_url": "https://media.adeo.com/marketplace/LMFR/19563243/ec0cc2b5-06e0-4065-9e28-11af4a2a0e25.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+    "description": "Set of 8 screwdrivers",
+    "price_per_day": 5,
+    "tool_type": "Screwdriver",
+    "use_case": ["Woodwork", "Drilling", "Plumbing"]
+  },
+  {
+    "brand": "Dexter",
+    "model": "Handsaw Fine-Cut 350mm",
+    "picture_url": "https://media.adeo.com/marketplace/LMFR/82676595/4813b0e9-8e21-46fa-8351-7becb9e88f4e.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+    "description": "Basic handsaw",
+    "price_per_day": 5,
+    "tool_type": "Saw",
+    "use_case": ["Woodwork", "Plumbing"]
+  }
+]

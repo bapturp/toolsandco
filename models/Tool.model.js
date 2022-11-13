@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { model, Schema } = require("mongoose");
 
 const toolSchema = new Schema({
   brand: {
@@ -24,6 +24,15 @@ const toolSchema = new Schema({
   tool_type: {
     type: String,
     required: true,
+    enum: [
+      "Drill",
+      "Saw",
+      "Hammer",
+      "Screwdriver",
+      "Clamp",
+      "Tape measure",
+      "Brush",
+    ],
   },
   use_case: {
     type: [String],
@@ -31,3 +40,7 @@ const toolSchema = new Schema({
     enum: ["Woodwork", "Plumbing", "Drilling", "Structural Work", "Painting"],
   },
 });
+
+const Tool = model("Tool", toolSchema);
+
+module.exports = Tool;
