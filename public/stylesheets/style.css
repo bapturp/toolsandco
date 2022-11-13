@@ -10,3 +10,23 @@ a {
 h1 {
   color: 15px;
 }
+
+.tool-image {
+  width: 15rem;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card div {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5%;
+  width: 30%;
+  margin-top: 5rem;
+}
+#tool-link {
+  text-decoration: none;
+}
