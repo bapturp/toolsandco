@@ -1,0 +1,15 @@
+<h1>Reservation</h1>
+
+<form action="/reservation/{{reservedTool._id}}" method="post">
+  <p><span>Tool: </span>{{reservedTool.model}}</p>
+  <div>
+    <label for="start_date">From: </label>
+    <input type="date" name="start_date" id="start_date" />
+  </div>
+  <div>
+    <label for="end_date">To: </label>
+    <input type="date" name="end_date" id="end_date" />
+  </div>
+
+  <button>Reserve</button>
+</form>

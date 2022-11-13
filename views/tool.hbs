@@ -11,8 +11,9 @@
     <p>
       <span>tags: </span>
       {{#each tool.use_case}}
-        <span class="use-case">{{tool}}</span>
+        <span class="use-case">{{this}}</span>
       {{/each}}
     </p>
+    <a href="/reservation/{{tool._id}}">Reserve</a>
   </div>
 </div>
