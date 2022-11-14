@@ -1,3 +1,10 @@
+/* ********************** Utils ********************** */
+
+:root {
+  --dark-blue: #29339B;
+  --turquoise: #31CCD1;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -20,6 +27,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .card div {
   text-align: center;
   border: 2px solid black;
@@ -27,6 +35,7 @@ h1 {
   width: 30%;
   margin-top: 5rem;
 }
+
 #tool-link {
   text-decoration: none;
 }
