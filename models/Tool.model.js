@@ -22,23 +22,17 @@ const toolSchema = new Schema({
     required: true,
   },
   tool_type: {
-    type: String,
-    required: true,
-    enum: [
-      "Drill",
-      "Saw",
-      "Hammer",
-      "Screwdriver",
-      "Clamp",
-      "Tape measure",
-      "Brush",
-    ],
+    tool_type: {
+      type: Schema.Types.ObjectId,
+      ref: "Tooltype",
+      required: true
+    }
   },
-  use_case: {
-    type: [String],
-    required: true,
-    enum: ["Woodwork", "Plumbing", "Drilling", "Structural Work", "Painting"],
-  },
+  use_case: [{
+    type: Schema.Types.ObjectId,
+    ref: "Usecase",
+    required: true
+  }],
 });
 
 const Tool = model("Tool", toolSchema);
