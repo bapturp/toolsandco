@@ -1,0 +1,47 @@
+<h1>Search</h1>
+
+<form action="/search" method="get">
+    <select name="tool_type">
+        <option value="" disabled selected>All tools</option>
+        {{#each tooltypesList}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <select name="use_case" id="">
+        <option value="" disabled selected>All activities</option>
+        {{#each usecasesList}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <div>
+        <label for="start_date">From: </label>
+        <input type="date" name="start_date" id="start_date" />
+    </div>
+    <div>
+        <label for="end_date">To: </label>
+        <input type="date" name="end_date" id="end_date" />
+    </div>
+
+    <button>Search</button>
+</form>
+
+{{#each toolsList}}
+<div class="card">
+    <div>
+        <h2>{{this.model}}</h2>
+        <h3>{{this.brand}}</h3>
+        <picture>
+            <img class="tool-image" src="{{this.picture_url}}" alt="{{this.model}}" />
+        </picture>
+        <p><span>Descrption: </span>{{this.description}}</p>
+        <p><span>Price: </span>{{this.price_per_day}}€/day</p>
+        <a href="/tools/{{this._id}}" id="tool-link">View details </a>
+        <p>
+            <span>tags: </span>
+            {{#each this.use_case}}
+            <span class="use-case">{{this}}</span>
+            {{/each}}
+        </p>
+    </div>
+</div>
+{{/each}}
