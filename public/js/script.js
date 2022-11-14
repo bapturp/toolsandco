@@ -1,4 +1,5 @@
 const addToCartBtns = document.querySelectorAll(".add-to-cart");
+const navBar = document.querySelector("nav");
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 document.addEventListener("DOMContentLoaded", () => {

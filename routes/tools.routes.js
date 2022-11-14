@@ -20,7 +20,6 @@ router.get("/:id/addToCart", async (req, res, next) => {
   console.log("========");
   const id = req.params.id;
   req.session.cart.push(id);
-  // addToCart(id);
   console.log(req.session.cart);
   console.log(foundTool);
   res.status(200).json(req.session.cart);
