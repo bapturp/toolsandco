@@ -1,21 +1,42 @@
 /* ********************** Utils ********************** */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap');
 
-:root {
-  --dark-blue: #29339B;
-  --turquoise: #31CCD1;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  font-family: var(--inconsolata);
+  font-size: 16px;
 }
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+img {
+  max-width: 100%;
 }
 
 a {
-  color: #00b7ff;
+  color: inherit;
+  text-decoration: none;
 }
 
-h1 {
-  color: 15px;
+:root {
+  --dark-blue: #29339B;
+  --dark-blue-transp: rgba(41, 51, 155, 0.8);
+  --turquoise: #31CCD1;
+  --turquoise-transp: rgba(49, 204, 209, 0.58);
+  --white: #fff;
+  --inconsolata: 'Inconsolata', monospace;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+body:not(.homepage) {
+  padding-top: 100px;
 }
 
 .tool-image {
@@ -37,5 +58,108 @@ h1 {
 }
 
 #tool-link {
+  text-decoration: none;
+}
+
+/* ********************** Homepage ********************** */
+#home-top {
+  min-height: 90vh;
+  width: 100%;
+  background: linear-gradient(90deg, var(--dark-blue-transp) 0, var(--dark-blue-transp) 100%), url(/images/tools-bg-home.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: calc(3vh + 65px) 10% 20vh;
+}
+
+#home-top .home-header {
+  width: 100%;
+  color: var(--turquoise);
+}
+
+#home-top .whats-the-plan {
+  width: 100%;
+  font-size: 2em;
+  margin-bottom: .3em;
+  color: var(--white);
+  text-align: center;
+}
+
+#home-top form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-search {
+  display: flex;
+  justify-content: center;
+  color: var(--turquoise);
+  font-size: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  line-height: 2em;
+}
+
+.home-search input,
+.home-search select {
+  background: none;
+  color: var(--turquoise-transp);
+  border: none;
+  border-bottom: 1px solid var(--turquoise);
+  font-size: inherit;
+  font-family: inherit;
+  margin: 0 1em;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* ********************** Header ********************** */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header.reg-nav {
+  min-height: 65px;
+  position: fixed;
+  background: var(--dark-blue-transp);
+  padding: 1em 10%;
+  color: white;
+}
+
+header.home-nav {
+  position: absolute;
+  padding: 1em 5%;
+}
+
+header.home-nav h1 {
+  font-weight: 900;
+  font-size: 6em;
+  color: var(--turquoise);
+}
+
+/* ********************** Footer ********************** */
+
+footer {
+  width: 100%;
+  min-height: 300px;
+  background-color: var(--dark-blue);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer * {
+  color: white;
   text-decoration: none;
 }
