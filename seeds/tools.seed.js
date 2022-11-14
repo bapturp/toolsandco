@@ -5,12 +5,14 @@ const Tooltype = require('../models/Tooltype.model');
 const tooltypes = require('./tooltypes.json');
 const Usecase = require('../models/Usecase.model');
 const usecases = require('./usecases.json');
+const mongoose = require('mongoose');
 
 async function toolSeed() {
   await tooltypeSeed()
   await usecaseSeed()
 
   await Tool.deleteMany();
+
   for (const tool of tools) {
     const type = await Tooltype.findOne({ name: tool.tool_type })
     tool.tool_type = type._id
@@ -32,6 +34,8 @@ async function tooltypeSeed() {
 async function usecaseSeed() {
   await Usecase.deleteMany();
   await Usecase.create(usecases);
+
+  mongoose.disconnect();
 }
 
 toolSeed();
