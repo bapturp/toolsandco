@@ -1,6 +1,6 @@
 <h1>Search</h1>
 
-<form action="/search" method="get">
+<form action="/search/search-tool" method="get">
     <select name="tool_type">
         <option value="" disabled selected>All tools</option>
         {{#each tooltypesList}}
@@ -39,7 +39,7 @@
         <p>
             <span>tags: </span>
             {{#each this.use_case}}
-            <span class="use-case">{{this}}</span>
+            <span class="use-case">{{this.name}}</span>
             {{/each}}
         </p>
     </div>
