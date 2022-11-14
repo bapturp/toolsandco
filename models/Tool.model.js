@@ -22,11 +22,9 @@ const toolSchema = new Schema({
     required: true,
   },
   tool_type: {
-    tool_type: {
-      type: Schema.Types.ObjectId,
-      ref: "Tooltype",
-      required: true
-    }
+    type: Schema.Types.ObjectId,
+    ref: "Tooltype",
+    required: true
   },
   use_case: [{
     type: Schema.Types.ObjectId,
