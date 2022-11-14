@@ -17,6 +17,9 @@
       <p><span>Descrption: </span>{{this.description}}</p>
       <p><span>Price: </span>{{this.price_per_day}}€/day</p>
       <a href="/tools/{{this._id}}" id="tool-link">View details </a>
+      <form action="/tools/{{this._id}}/addToCart" method="get">
+        <button class="add-to-cart">Add To Cart</button>
+      </form>
       <p>
         <span>tags: </span>
         {{#each this.use_case}}
