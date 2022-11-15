@@ -22,11 +22,13 @@ router.get("/", async (req, res, next) => {
     if (query.start_date) {
       const startDate = new Date(query.start_date);
       const endDate = new Date(query.end_date);
+      //console.log((endDate.getTime() - startDate.getTime()) / 86400000 + 1);
       // Stock the dates inside the session to use them in the checkout
       req.session.date = {
         start: startDate,
         end: endDate,
       };
+      res.locals.date = req.session.date;
       // Récupérer les produits qui n'ont aucune réservation en cours ou prévue sur tout ou partie de la période sélectionnée
       const allResas = await Reservation.find({
         $or: [
