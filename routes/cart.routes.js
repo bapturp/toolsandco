@@ -12,4 +12,9 @@ router.get("/", async (req, res, next) => {
   res.render("cart", { reservedTools });
 });
 
+router.get("/clear", (req, res, next) => {
+  req.session.cart = [];
+  res.redirect("/cart");
+});
+
 module.exports = router;

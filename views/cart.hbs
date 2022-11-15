@@ -1,28 +1,34 @@
 <h1>Cart</h1>
 
-<a href="/reservation">Make a reservation</a>
+{{#if cart}}
+  <a href="/cart/clear">Clear cart</a>
 
-{{#each reservedTools}}
-  <div class="card">
-    <div>
-      <h2>{{this.model}}</h2>
-      <h3>{{this.brand}}</h3>
-      <picture>
-        <img
-          class="tool-image"
-          src="{{this.picture_url}}"
-          alt="{{this.model}}"
-        />
-      </picture>
-      <p><span>Descrption: </span>{{this.description}}</p>
-      <p><span>Price: </span>{{this.price_per_day}}€/day</p>
-      <a href="/tools/{{this._id}}" id="tool-link">View details </a>
-      <p>
-        <span>tags: </span>
-        {{#each this.use_case}}
-          <span class="use-case">{{this}}</span>
-        {{/each}}
-      </p>
+  <a href="/auth/signup">Finalize !</a>
+
+  {{#each reservedTools}}
+    <div class="card">
+      <div>
+        <h2>{{this.model}}</h2>
+        <h3>{{this.brand}}</h3>
+        <picture>
+          <img
+            class="tool-image"
+            src="{{this.picture_url}}"
+            alt="{{this.model}}"
+          />
+        </picture>
+        <p><span>Descrption: </span>{{this.description}}</p>
+        <p><span>Price: </span>{{this.price_per_day}}€/day</p>
+        <a href="/tools/{{this._id}}" id="tool-link">View details </a>
+        <p>
+          <span>tags: </span>
+          {{#each this.use_case}}
+            <span class="use-case">{{this}}</span>
+          {{/each}}
+        </p>
+      </div>
     </div>
-  </div>
-{{/each}}
+  {{/each}}
+{{else}}
+  <h2>Your cart is empty 😢</h2>
+{{/if}}
