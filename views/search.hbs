@@ -2,13 +2,13 @@
 
 <form action="/search" method="get" id="search-form">
     <select name="tool_type">
-        <option value="" disabled selected>All tools</option>
+        <option value="" selected>All tools</option>
         {{#each tooltypesList}}
         <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
     </select>
     <select name="use_case" id="">
-        <option value="" disabled selected>All activities</option>
+        <option value="" selected>All activities</option>
         {{#each usecasesList}}
         <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
@@ -48,3 +48,7 @@
 {{else}}
 No results
 {{/if}}
+
+{{#each allResas}}
+{{this.tool}}
+{{/each}}

@@ -16,22 +16,13 @@ addToCartBtns.forEach((addToCartBtn) => {
     console.log("=======", data);
   });
 });
-// document.addEventListener("DOMContentLoaded", () => {
-//   alert("app JS imported successfully!");
-// });
 
-// const api_url = "http://localhost:3000/"
+const startCalendar = document.querySelector("#start_date")
+const endCalendar = document.querySelector("#end_date")
+var today = new Date().toISOString().split('T')[0];
+startCalendar.setAttribute('min', today);
 
-// const searchForm = document.getElementById('search-form')
-// searchForm.addEventListener("submit", async (event) => {
-//   event.preventDefault()
-//   const tooltypeSelect = document.querySelector('[name="tool_type"]')
-//   const usecaseSelect = document.querySelector('[name="use_case"]')
-//   const tooltypeSelectValue = tooltypeSelect.value
-//   const usecaseSelectValue = usecaseSelect.value
-//   const { data } = await axios({
-//     method: "get",
-//     baseURL: api_url + "search?tool_type=" + tooltypeSelectValue + "&use_case=" + usecaseSelectValue
-//   })
-//   console.log(data)
-// })
+startCalendar.addEventListener('change', () => {
+  const selectedStartDate = startCalendar.value
+  endCalendar.setAttribute('min', selectedStartDate)
+})
