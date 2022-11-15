@@ -5,11 +5,11 @@
 // req.locals.currentUser.role
 
 const exposeUserInfo = (req, res, next) => {
-    if (req.session.currentUser) {
-        res.locals.currentUser = req.session.currentUser;
-        res.locals.isLoggedIn = true;
-    }
-    return next();
+  if (req.session.currentUser) {
+    res.locals.currentUser = req.session.currentUser;
+    res.locals.isLoggedIn = true;
+  }
+  return next();
 };
 
 module.exports = exposeUserInfo;
