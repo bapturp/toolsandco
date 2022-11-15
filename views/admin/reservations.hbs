@@ -1,0 +1,20 @@
+<h1>All reservations</h1>
+
+<table>
+  <tr>
+    <th>brand</th>
+    <th>model</th>
+    <th>tool type</th>
+    <th>use case</th>
+    <th>price per day</th>
+  </tr>
+  {{#each reservations}}
+    <tr>
+      <td>{{this.brand}}</td>
+      <td>{{this.model}}</td>
+      <td>{{this.tool_type}}</td>
+      <td>{{this.use_case}}</td>
+      <td>{{this.price_per_day}}</td>
+    </tr>
+  {{/each}}
+</table>
