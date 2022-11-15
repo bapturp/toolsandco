@@ -27,6 +27,9 @@ router.get("/", async (req, res, next) => {
         start: startDate,
         end: endDate,
       };
+
+      res.locals.date = req.session.date;
+
       console.log(req.session.date);
       // Exclure les outils avec une réservation existante sur tout ou partie de la période sélectionnée
       const allResas = await Reservation.find({

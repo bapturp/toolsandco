@@ -35,6 +35,7 @@ app.use((req, res, next) => {
   if (!req.session.date) {
     req.session.date = { start: null, end: null };
   }
+  res.locals.date = req.session.date;
   res.locals.cart = req.session.cart.length;
   next();
 });

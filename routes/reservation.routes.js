@@ -37,7 +37,6 @@ router.post("/:id", async (req, res, next) => {
       },
     ]);
     const daysReserved = date[0].dateDifference / 86400000 + 1;
-    console.log(`Reserved for ${daysReserved} days`);
     res.redirect("/tools");
   } catch (error) {
     next(error);
