@@ -31,30 +31,13 @@ a {
 
 body {
   width: 100%;
+  height: 100%;
   min-height: 100vh;
   position: relative;
 }
 
 body:not(.homepage) {
   padding-top: 100px;
-}
-
-.tool-image {
-  width: 15rem;
-}
-
-.card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.card div {
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 5%;
-  width: 30%;
-  margin-top: 5rem;
 }
 
 #tool-link {
@@ -122,8 +105,35 @@ body:not(.homepage) {
   margin: 0 1em;
 }
 
-::-webkit-calendar-picker-indicator {
+.home-search ::-webkit-calendar-picker-indicator {
   filter: invert(1);
+}
+
+/* ********************** Search page ********************** */
+.results-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.tool-image {
+  width: 60%;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.card div {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5%;
+  /* width: 30%; */
+  margin-top: 5rem;
 }
 
 /* ********************** Header ********************** */
@@ -159,10 +169,12 @@ header.home-nav h1 {
 
 footer {
   width: 100%;
-  min-height: 300px;
+  min-height: 200px;
   background-color: var(--dark-blue);
   display: flex;
   flex-wrap: wrap;
+  /* position: absolute; */
+  bottom: 0;
 }
 
 footer * {
