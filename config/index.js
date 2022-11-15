@@ -48,12 +48,16 @@ module.exports = (app) => {
   // ℹ️ Middleware that adds a "req.session" information and later to check that you are who you say you are 😅
   app.use(
     session({
+      //cart: ["ABCS"],
       secret: process.env.SESSION_SECRET || "super hyper secret key",
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
         mongoUrl: MONGO_URI,
       }),
+      cookie: {
+        maxAge: 1000 * 60 * 60,
+      },
     })
   );
 };
