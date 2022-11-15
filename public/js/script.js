@@ -16,6 +16,7 @@ addToCartBtns.forEach((addToCartBtn) => {
   });
 });
 
+// Handles calendar default dates and forbidden dates
 const startCalendar = document.querySelector("#start_date")
 const endCalendar = document.querySelector("#end_date")
 var today = new Date().toISOString().split('T')[0];
@@ -39,3 +40,8 @@ function addDays(date, days) {
   result.setDate(result.getDate() + days);
   return result;
 }
+
+// Handles profile menu dropdown
+document.querySelector("#btn-profile").addEventListener('click', () => {
+  document.querySelector("#profile-dropdown").classList.toggle('d-none')
+})
