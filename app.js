@@ -26,6 +26,7 @@ app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
+// Set up of cart and date inside req.session
 app.use((req, res, next) => {
   if (!req.session.cart) {
     req.session.cart = [];
@@ -33,8 +34,8 @@ app.use((req, res, next) => {
   }
   if (!req.session.date) {
     req.session.date = { start: null, end: null };
-    console.log(req.session.date);
   }
+  res.locals.date = req.session.date;
   res.locals.cart = req.session.cart.length;
   next();
 });
