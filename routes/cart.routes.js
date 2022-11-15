@@ -17,4 +17,10 @@ router.get("/clear", (req, res, next) => {
   res.redirect("/cart");
 });
 
+router.get("/clear-item/:id", (req, res, next) => {
+  const id = req.params.id;
+  req.session.cart.splice(req.session.cart.indexOf(id), 1);
+  res.redirect("/cart");
+});
+
 module.exports = router;

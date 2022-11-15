@@ -10,7 +10,6 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const id = req.params.id;
   const tool = await Tool.findById(id);
-  console.log(tool);
   res.render("tool", { tool });
 });
 

@@ -20,6 +20,7 @@
         <p><span>Descrption: </span>{{this.description}}</p>
         <p><span>Price: </span>{{this.price_per_day}}€/day</p>
         <a href="/tools/{{this._id}}" id="tool-link">View details </a>
+        <a href="/cart/clear-item/{{this._id}}">Remove from cart</a>
         <p>
           <span>tags: </span>
           {{#each this.use_case}}

@@ -31,7 +31,6 @@ app.use((req, res, next) => {
     res.locals.cart = req.session.cart.length;
   }
   res.locals.cart = req.session.cart.length;
-  console.log(req.session.cart);
   next();
 });
 app.use("/", indexRoutes);
