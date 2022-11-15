@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 addToCartBtns.forEach((addToCartBtn) => {
   addToCartBtn.addEventListener("click", async (event) => {
     event.preventDefault();
-    console.log("COUCOU");
     const cartQuantity = document.getElementById("cart-quantity");
     const route = event.target.closest("form").action;
     const { data } = await axios.get(route);

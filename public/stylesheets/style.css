@@ -1,8 +1,8 @@
 /* ********************** Utils ********************** */
 
 :root {
-  --dark-blue: #29339B;
-  --turquoise: #31CCD1;
+  --dark-blue: #29339b;
+  --turquoise: #31ccd1;
 }
 
 body {
@@ -38,4 +38,9 @@ h1 {
 
 #tool-link {
   text-decoration: none;
+}
+
+#cart-link {
+  text-decoration: none;
+  color: black;
 }

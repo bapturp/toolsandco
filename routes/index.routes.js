@@ -5,6 +5,7 @@ const router = express.Router();
 router.use("/tools", require("./tools.routes"));
 router.use("/reservation", require("./reservation.routes"));
 router.use("/search", require("./search.routes"));
+router.use("/cart", require("./cart.routes"));
 router.get("/", (req, res, next) => {
   res.render("index");
 });
