@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
         _id: {
           $in: toolsList,
         },
-      });
+      }).populate("use_case");
       //Get all the prices/day of the different tools in the cart
       const prices = reservedTools.map((tool) => {
         return tool.price_per_day;
