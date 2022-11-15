@@ -1,2 +1,32 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<section id="home-top">
+    <form action="/search" method="get" id="search-form">
+
+        <div class="home-search">
+            <div class="whats-the-plan">What's the plan?</div>
+            I need
+            <select name="tool_type">
+                <option value="" disabled selected>a tool</option>
+                {{#each tooltypesList}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            to
+            <select name="use_case" id="">
+                <option value="" disabled selected>do something</option>
+                {{#each usecasesList}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            starting
+            <input type="date" name="start_date" id="start_date" placeholder="today" />
+            until
+            <input type="date" name="end_date" id="end_date" />
+        </div>
+        <button class="btn btn-turquoise">Let's do this</button>
+    </form>
+</section>
+<section class="activities">
+    <article>ac1</article>
+    <article>ac2</article>
+    <article>a3</article>
+</section>
