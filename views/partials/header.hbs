@@ -1,0 +1,16 @@
+{{#if isHome}}
+<header class="home-nav">
+    {{else}}
+    <header class="reg-nav">
+        {{/if}}
+        <h1>Tools&co</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/tools">Tools</a>
+            <a href="/search">Search</a>
+        </nav>
+        <div>
+            <a href="/login" class="btn btn-turquoise">Log in <i class="fa-solid fa-circle-user"></i></a>
+            <a href="/signup" class="btn btn-dark-blue">Sign up</a>
+        </div>
+    </header>
