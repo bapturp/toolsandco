@@ -61,6 +61,12 @@ body:not(.homepage) {
   text-decoration: none;
 }
 
+
+#cart-link {
+  text-decoration: none;
+  color: black;
+}
+
 /* ********************** Homepage ********************** */
 #home-top {
   min-height: 90vh;

@@ -8,6 +8,9 @@ const Usecase = require("./../models/Usecase.model");
 router.use("/tools", require("./tools.routes"));
 router.use("/reservation", require("./reservation.routes"));
 router.use("/search", require("./search.routes"));
+
+router.use("/cart", require("./cart.routes"));
+
 router.get("/", exposeUserInfo, async (req, res, next) => {
   const tooltypesList = await Tooltype.find()
   const usecasesList = await Usecase.find()
