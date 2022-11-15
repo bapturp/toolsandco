@@ -19,9 +19,23 @@ addToCartBtns.forEach((addToCartBtn) => {
 const startCalendar = document.querySelector("#start_date")
 const endCalendar = document.querySelector("#end_date")
 var today = new Date().toISOString().split('T')[0];
+const todayPlusTwo = addDays(Date(), 2).toISOString().split('T')[0];
+
 startCalendar.setAttribute('min', today);
+startCalendar.setAttribute('value', today)
+endCalendar.setAttribute('value', todayPlusTwo)
 
 startCalendar.addEventListener('change', () => {
   const selectedStartDate = startCalendar.value
-  endCalendar.setAttribute('min', selectedStartDate)
+  const selectedStartDateBla = new Date(selectedStartDate)
+  const inTwoDays = addDays(selectedStartDateBla, 2).toISOString().split('T')[0];
+  endCalendar.setAttribute('min', inTwoDays)
+  endCalendar.setAttribute('value', inTwoDays)
+  endCalendar.showPicker()
 })
+
+function addDays(date, days) {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
