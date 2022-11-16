@@ -1,6 +1,7 @@
 const express = require("express");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const isAdmin = require("../middlewares/isAdmin");
+const exposeUserInfo = require("../middlewares/exposeUserInfo");
 const router = express.Router();
 
 const User = require("../models/User.model");
@@ -12,16 +13,17 @@ const Usecase = require("./../models/Usecase.model");
 const uploader = require('../config/cloudinary.config');
 
 // all routes are prefixed with /admin
-router.get("/", isLoggedIn, isAdmin, async (req, res, next) => {
+router.get("/", exposeUserInfo, isLoggedIn, isAdmin, async (req, res, next) => {
   try {
-    return res.render("admin/dashboard")
+    const username = res.locals.currentUser.username
+    return res.render("admin/dashboard", { username })
   } catch (error) {
     return next(error)
   }
 
 })
 
-router.get("/users", isLoggedIn, isAdmin, async (req, res) => {
+router.get("/users", exposeUserInfo, isLoggedIn, isAdmin, async (req, res) => {
   try {
     const users = await User.find().populate();
     return res.render("admin/users", { users });
@@ -31,9 +33,15 @@ router.get("/users", isLoggedIn, isAdmin, async (req, res) => {
   }
 });
 
-router.get("/reservations", isLoggedIn, isAdmin, async (req, res) => {
+router.get("/reservations", exposeUserInfo, isLoggedIn, isAdmin, async (req, res) => {
   try {
-    const reservations = await Reservation.find().populate();
+    const reservations = await Reservation.find().populate({
+      path: 'tool', populate: {
+        path: 'tool_type',
+        model: 'Tooltype'
+      }
+    }).populate('user');
+    console.log(reservations)
     return res.render("admin/reservations", { reservations });
   } catch (error) {
     console.error(error);
@@ -43,7 +51,7 @@ router.get("/reservations", isLoggedIn, isAdmin, async (req, res) => {
 
 // ***************** Tools management
 // Get tools
-router.get("/tools", isLoggedIn, isAdmin, async (req, res) => {
+router.get("/tools", exposeUserInfo, isLoggedIn, isAdmin, async (req, res) => {
   try {
     const tooltypes = await Tooltype.find()
     const usecases = await Usecase.find()
@@ -56,7 +64,7 @@ router.get("/tools", isLoggedIn, isAdmin, async (req, res) => {
 });
 
 // Create tool
-router.post("/tools/create", uploader.single('picture_url'), async (req, res, next) => {
+router.post("/tools/create", exposeUserInfo, uploader.single('picture_url'), async (req, res, next) => {
   try {
     const { brand, model, description, price_per_day, tool_type, use_case } = req.body
     await Tool.create({ brand, model, picture_url: req.file.path, description, price_per_day, tool_type, use_case })
@@ -67,7 +75,7 @@ router.post("/tools/create", uploader.single('picture_url'), async (req, res, ne
 })
 
 // Get edit tool page
-router.get("/tools/:id/edit", isLoggedIn, isAdmin, async (req, res, next) => {
+router.get("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const tool = await Tool.findById(req.params.id).populate('use_case tool_type')
     const tooltypes = await Tooltype.find()
@@ -79,7 +87,7 @@ router.get("/tools/:id/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 })
 
 // Save edits
-router.post("/tools/:id/edit", isLoggedIn, isAdmin, uploader.single('picture_url'), async (req, res, next) => {
+router.post("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, uploader.single('picture_url'), async (req, res, next) => {
   try {
     const { brand, model, description, price_per_day, tool_type, use_case } = req.body
     await Tool.findByIdAndUpdate(req.params.id, { brand, model, picture_url: req.file.path, description, price_per_day, tool_type, use_case }, { new: true })
@@ -90,7 +98,7 @@ router.post("/tools/:id/edit", isLoggedIn, isAdmin, uploader.single('picture_url
 })
 
 // Get tool types & use cases
-router.get("/tools/tool-tags", isLoggedIn, isAdmin, async (req, res) => {
+router.get("/tools/tool-tags", exposeUserInfo, isLoggedIn, isAdmin, async (req, res) => {
   try {
     const tooltypes = await Tooltype.find()
     const usecases = await Usecase.find()
@@ -100,6 +108,17 @@ router.get("/tools/tool-tags", isLoggedIn, isAdmin, async (req, res) => {
     return next(error);
   }
 });
+
+// Delete tool from base
+router.post('/tools/:id/delete', async (req, res) => {
+  try {
+    await Tool.findByIdAndRemove(req.params.id)
+    res.redirect("/admin/tools")
+  } catch (error) {
+    next(err)
+  }
+})
+
 
 // Add tool type
 router.post("/tools/tooltypes/create", async (req, res, next) => {

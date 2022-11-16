@@ -1,16 +1,20 @@
-<h1>All users</h1>
+{{> adminHeader}}
 
-<table>
-  <tr>
-    <th>user</th>
-    <th>role</th>
-    <th>email</th>
-  </tr>
-  {{#each users}}
+<main>
+  <h1>All users</h1>
+
+  <table class="table-control">
+    <tr>
+      <th>user</th>
+      <th>role</th>
+      <th>email</th>
+    </tr>
+    {{#each users}}
     <tr>
       <td>{{this.username}}</td>
       <td>{{this.role}}</td>
       <td>{{this.email}}</td>
     </tr>
-  {{/each}}
-</table>
+    {{/each}}
+  </table>
+</main>
