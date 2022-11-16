@@ -8,6 +8,7 @@ const Usecase = require("./../models/Usecase.model");
 router.use("/tools", exposeUserInfo, require("./tools.routes"));
 router.use("/reservation", exposeUserInfo, require("./reservation.routes"));
 router.use("/search", exposeUserInfo, require("./search.routes"));
+router.use("/profile", exposeUserInfo, require("./profile.routes.js"));
 
 router.use("/cart", exposeUserInfo, require("./cart.routes"));
 
