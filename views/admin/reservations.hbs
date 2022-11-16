@@ -1,20 +1,24 @@
-<h1>All reservations</h1>
+{{> adminHeader}}
 
-<table>
-  <tr>
-    <th>brand</th>
-    <th>model</th>
-    <th>tool type</th>
-    <th>use case</th>
-    <th>price per day</th>
-  </tr>
-  {{#each reservations}}
+<main>
+  <h1>All reservations</h1>
+
+  <table class="table-control">
     <tr>
-      <td>{{this.brand}}</td>
-      <td>{{this.model}}</td>
-      <td>{{this.tool_type}}</td>
-      <td>{{this.use_case}}</td>
-      <td>{{this.price_per_day}}</td>
+      <th>Tool type</th>
+      <th>Tool</th>
+      <th>Renter</th>
+      <th>Start date</th>
+      <th>End date</th>
     </tr>
-  {{/each}}
-</table>
+    {{#each reservations}}
+    <tr>
+      <td>{{this.tool.tool_type.name}}</td>
+      <td>{{this.tool.model}}</td>
+      <td>{{this.user.email}}</td>
+      <td class="trim-date">{{this.start_date}}</td>
+      <td class="trim-date">{{this.end_date}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</main>
