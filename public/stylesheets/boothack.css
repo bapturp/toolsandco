@@ -4,6 +4,7 @@
     padding: .5em 2em;
     font-size: 1.2em;
     cursor: pointer;
+    display: inline-block;
 }
 
 .btn-turquoise {
@@ -39,6 +40,11 @@
 
 .col-100 {
     width: 100%;
+}
+
+/******** Display ********/
+.d-none {
+    display: none;
 }
 
 /* Flex */

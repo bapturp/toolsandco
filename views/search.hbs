@@ -1,29 +1,28 @@
-<h1>Search</h1>
+<section class="search-bar">
+    <form action="/search" method="get" id="search-form">
+        <select name="tool_type">
+            <option value="" selected>All tools</option>
+            {{#each tooltypesList}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <select name="use_case" id="">
+            <option value="" selected>All activities</option>
+            {{#each usecasesList}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <div class="calendar">
+            <input type="date" name="start_date" id="start_date" />
+            <input type="date" name="end_date" id="end_date" />
+        </div>
 
-<form action="/search" method="get" id="search-form">
-    <select name="tool_type">
-        <option value="" selected>All tools</option>
-        {{#each tooltypesList}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    <select name="use_case" id="">
-        <option value="" selected>All activities</option>
-        {{#each usecasesList}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    <div>
-        <label for="start_date">From: </label>
-        <input type="date" name="start_date" id="start_date" />
-    </div>
-    <div>
-        <label for="end_date">To: </label>
-        <input type="date" name="end_date" id="end_date" />
-    </div>
 
-    <button>Search</button>
-</form>
+        <button class="btn btn-dark-blue">Search</button>
+    </form>
+</section>
+
+
 <section class="results-list">
     {{#if toolsList}}
     {{#each toolsList}}
