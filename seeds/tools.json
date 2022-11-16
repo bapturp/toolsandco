@@ -25,5 +25,95 @@
     "price_per_day": 5,
     "tool_type": "Saws",
     "use_case": ["Woodworking", "Plumbing"]
+  },
+  {
+    "brand": "Rhino",
+    "model": "Lightweight Aluminium Step Ladder - 7 Tread",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12889765-1184860593407374.jpg",
+    "description": "7 tread step ladder",
+    "price_per_day": 4,
+    "tool_type": "Ladders",
+    "use_case": ["Gardening", "Construction work", "Paint"]
+  },
+  {
+    "brand": "Homebase",
+    "model": "2 Steps Steel Ladder",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12890464-1284849465949202.jpg",
+    "description": "This practical and sturdy steel step ladder is an invaluable help around the home, making it so much easier to reach those higher shelves or cupboards.",
+    "price_per_day": 2,
+    "tool_type": "Ladders",
+    "use_case": ["Gardening", "Paint"]
+  },
+  {
+    "brand": "Rhino",
+    "model": "3 Section 27 Rung Extension Ladder - 5.65m",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12889949-1934860598429398.jpg",
+    "description": "The Rhino 3 section 27 rung Extension Ladder is constructed using high grade aluminium and extends to a height of 5.65m. Box section stiles provide added rigidity and sturdiness to ensure the ladder is robust and built to last. Features include smooth-glide runners to reduce wear and tear, slip-resistant square shaped rungs and a wide stabiliser for added safety during use.",
+    "price_per_day": 8,
+    "tool_type": "Ladders",
+    "use_case": ["Gardening", "Paint"]
+  },
+  {
+    "brand": "Silverline",
+    "model": "Mini Air Compressor 12v DC",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12830149-1414831958174238.jpg",
+    "description": "Small compressor suitable for inflating tyres, dinghies and sports equipment.",
+    "price_per_day": 2,
+    "tool_type": "Power tools",
+    "use_case": ["Other"]
+  },
+  {
+    "brand": "Bosh",
+    "model": "Universal Impact 18V Combi Drill with 1 x 1.5Ah Battery",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12940358-1734874676564192.jpg",
+    "description": "This powerful, lightweight, and compact combi drill provides the ideal mix of power and versatility. The sleek ergonomic design offers comfortable handling. Always using the right amount of power on every task is simple thanks to 20 different torque settings and drilling and impact drilling selections. Its high-performance 2-speed planetary gear box meets the demands of each application. The UniversalImpact 18V is designed for drilling and screwdriving in wood and metal, as well as for impact drilling in masonry. It has a 10-mm shank and single sleeve chuck for easy screw bit and drill bit changes.",
+    "price_per_day": 5,
+    "tool_type": "Drills",
+    "use_case": ["Plumbing", "Construction work", "DIY"]
+  },
+  {
+    "brand": "Chillington County",
+    "model": "Wheelbarrow 120L",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12835844-1824831942060533.jpg",
+    "description": "120 litre green wheelbarrow with puncture free wheel, for easeful rotation when transporting garden materials.",
+    "price_per_day": 3,
+    "tool_type": "Wheelbarrow",
+    "use_case": ["Woodworking", "Transport", "Gardening"]
+  },
+  {
+    "brand": "Powerbase",
+    "model": "Lawnmower 40V",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/960/960/12885540-1134843583328858.jpg",
+    "description": "This 40v Powerbase cordless lawn mower comes supplied with 2 x 20v, 2.5Ah batteries (both batteries must be inserted into the machine when in use) and a 2 hour dual port charger. The mower has a 34cm cutting width and is ideal for the small to medium sized lawn. As this mower is cordless, there is no need for petrol and no cables to contend with, therefore provides the freedom of petrol but without the fuss.",
+    "price_per_day": 10,
+    "tool_type": "Power tools",
+    "use_case": ["Gardening"]
+  },
+  {
+    "brand": "Stanley",
+    "model": "FATMAX V20 18V Cordless Random Orbital Sander",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12838418-8244831909524765.jpg",
+    "description": "The Random Orbital Sander has been designed to be used for any DIYer, who would like to start to tackle fine sanding tasks around the home. Comes with 2.0Ah battery, charger, soft storage bag and 1x mesh sanding sheet.",
+    "price_per_day": 4,
+    "tool_type": "Sanders",
+    "use_case": ["Woodworking", "Paint"]
+  },
+  {
+    "brand": "BLACK+DECKER",
+    "model": "Dual Heat Settings 1750W Corded Heat Gun",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12838396-1784831909845717.jpg",
+    "description": "This powerful heat gun with variable heat control gives maximum control. Perfect for removing paint varnish and adhesives from surfaces, the two heat and air flow settings maximise control during application. The heat gun features a built-in stand so that applications can be safely completed hands free and is also handy when the tool is cooling down after finished job.",
+    "price_per_day": 4,
+    "tool_type": "Power tools",
+    "use_case": ["Paint"]
+  },
+  {
+    "brand": "Stanley",
+    "model": "FATMAX V20 18V Cordless 30Cm Chainsaw ",
+    "picture_url": "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12882310-1624843590559971.jpg",
+    "description": "The chainsaw features a 30cm bar and 7.7m/s chain speed for fast, efficient wood cutting. The chain break safety mechanism stops the chain in less than 1 second for improved and controlled safety. The tool-free chain tensioning system provides quick and easy hassle free chain adjustments and an auto-oiling system for minimal tool maintenance. Lightweight and compact for reduced user fatigue and complete with an integral battery state of charge indicator for convenient monitoring of battery charge levels.",
+    "price_per_day": 6,
+    "tool_type": "Power tools",
+    "use_case": ["Gardening"]
   }
 ]
