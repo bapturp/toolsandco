@@ -410,3 +410,25 @@ footer * {
   color: white;
   text-decoration: none;
 }
+
+/* ********************** Credentials change ********************** */
+.credential {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  width: 50%;
+}
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#btn-credential {
+  margin: 2rem;
+}
