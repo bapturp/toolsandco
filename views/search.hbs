@@ -1,54 +1,34 @@
-<h1>Search</h1>
-
-<form action="/search" method="get" id="search-form">
-    <select name="tool_type">
-        <option value="" selected>All tools</option>
-        {{#each tooltypesList}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    <select name="use_case" id="">
-        <option value="" selected>All activities</option>
-        {{#each usecasesList}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    <div>
-        <label for="start_date">From: </label>
-        <input type="date" name="start_date" id="start_date" />
-    </div>
-    <div>
-        <label for="end_date">To: </label>
-        <input type="date" name="end_date" id="end_date" />
-    </div>
-
-    <button>Search</button>
-</form>
-{{#if toolsList}}
-{{#each toolsList}}
-<div class="card">
-    <div>
-        <h2>{{this.model}}</h2>
-        <h3>{{this.brand}}</h3>
-        <picture>
-            <img class="tool-image" src="{{this.picture_url}}" alt="{{this.model}}" />
-        </picture>
-        <p><span>Descrption: </span>{{this.description}}</p>
-        <p><span>Price: </span>{{this.price_per_day}}€/day</p>
-        <a href="/tools/{{this._id}}" id="tool-link">View details </a>
-        <p>
-            <span>tags: </span>
-            {{#each this.use_case}}
-            <span class="use-case">{{this.name}}</span>
+<section class="search-bar">
+    <form action="/search" method="get" id="search-form">
+        <select name="tool_type">
+            <option value="" selected>All tools</option>
+            {{#each tooltypesList}}
+            <option value="{{this.name}}">{{this.name}}</option>
             {{/each}}
-        </p>
-    </div>
-</div>
-{{/each}}
-{{else}}
-No results
-{{/if}}
+        </select>
+        <select name="use_case" id="">
+            <option value="" selected>All activities</option>
+            {{#each usecasesList}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <div class="calendar">
+            <input type="date" name="start_date" id="start_date" />
+            <input type="date" name="end_date" id="end_date" />
+        </div>
 
-{{#each allResas}}
-{{this.tool}}
-{{/each}}
+
+        <button class="btn btn-dark-blue">Search</button>
+    </form>
+</section>
+
+
+<section class="results-list">
+    {{#if toolsList}}
+    {{#each toolsList}}
+    {{> toolCard}}
+    {{/each}}
+    {{else}}
+    No results
+    {{/if}}
+</section>

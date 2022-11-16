@@ -8,32 +8,39 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res, next) => {
-  const id = req.params.id;
-  const reservedTool = await Tool.findById(id);
-  res.render("reservation", { reservedTool });
+  try {
+    const id = req.params.id;
+    const reservedTool = await Tool.findById(id);
+    res.render("reservation", { reservedTool });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/:id", async (req, res, next) => {
-  const toolId = req.params.id;
-  const start = req.body.start_date;
-  const end = req.body.end_date;
-  const newReservation = await Reservation.create({
-    tool: toolId,
-    user: "6370b892260a3f1599b8e26d",
-    start_date: start,
-    end_date: end,
-  });
-  const date = await Reservation.aggregate([
-    { $match: { _id: newReservation._id } },
-    {
-      $project: {
-        dateDifference: { $subtract: ["$end_date", "$start_date"] },
+  try {
+    const toolId = req.params.id;
+    const start = req.body.start_date;
+    const end = req.body.end_date;
+    const newReservation = await Reservation.create({
+      tool: toolId,
+      user: "6370b892260a3f1599b8e26d",
+      start_date: start,
+      end_date: end,
+    });
+    const date = await Reservation.aggregate([
+      { $match: { _id: newReservation._id } },
+      {
+        $project: {
+          dateDifference: { $subtract: ["$end_date", "$start_date"] },
+        },
       },
-    },
-  ]);
-  const daysReserved = (date[0].dateDifference / 86400000) + 1;
-  console.log(`Reserved for ${daysReserved} days`);
-  res.redirect("/tools");
+    ]);
+    const daysReserved = date[0].dateDifference / 86400000 + 1;
+    res.redirect("/tools");
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;

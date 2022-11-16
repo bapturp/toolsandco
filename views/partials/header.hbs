@@ -1,15 +1,30 @@
 <header {{#if isHome}} class="home-nav" {{else}} class="reg-nav" {{/if}}>
-    <h1>Tools&co</h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/tools">Tools</a>
-        <a href="/search">Search</a>
-    </nav>
-    <div>
-        <a href="/login" class="btn btn-turquoise">Log in <i class="fa-solid fa-circle-user"></i></a>
-        <a href="/signup" class="btn btn-dark-blue">Sign up</a>
+    <a href="/">
+        <h1> Tools&co</h1>
+    </a>
+    <div class="nav-buttons">
         <a href="/cart" class="btn btn-turquoise" id="cart-link">
-            Cart:<span id="cart-quantity">{{cart}}</span>
+            Cart <span id="cart-quantity">{{cart}}</span><i class="fa-solid fa-cart-shopping"></i>
         </a>
+        {{#if isLoggedIn}}
+        <div id="profile-menu">
+            <div id="btn-profile">
+                <div class="icon"><i class="fa-solid fa-user"></i></i> </div><i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+            <div id="profile-dropdown" class="d-none">
+                <a href="/profile">My profile</a>
+                <a href="/auth/logout">Log out</a>
+            </div>
+        </div>
+
+
+        {{else}}
+        {{#if isAdmin}}
+        ADMIN
+        {{/if}}
+        <a href="/auth/login" class="btn btn-turquoise">Log in <i class="fa-solid fa-circle-user"></i></a>
+        <a href="/auth/signup" class="btn btn-dark-blue">Sign up</a>
+        {{/if}}
     </div>
 </header>

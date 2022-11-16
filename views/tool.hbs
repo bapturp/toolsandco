@@ -5,13 +5,13 @@
     <picture>
       <img class="tool-image" src="{{tool.picture_url}}" alt="{{tool.model}}" />
     </picture>
-    <p><span>Descrption: </span>{{tool.description}}</p>
+    <p><span>Description: </span>{{tool.description}}</p>
     <p><span>Price: </span>{{tool.price_per_day}}€/day</p>
     <a href="/tools/{{tool._id}}" id="tool-link">View details </a>
     <p>
       <span>tags: </span>
       {{#each tool.use_case}}
-        <span class="use-case">{{this}}</span>
+        <span class="use-case">{{this.name}}</span>
       {{/each}}
     </p>
     <a href="/reservation/{{tool._id}}">Reserve</a>
