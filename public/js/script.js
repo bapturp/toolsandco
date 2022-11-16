@@ -46,4 +46,3 @@ if (profileBtn) {
     document.querySelector("#profile-dropdown").classList.toggle('d-none')
   })
 }
-

@@ -7,8 +7,8 @@
       {{#each reservedTools}}
         <div class="checkout-tool">
           <div class="checkout-tool-description">
-            <h4>{{this.brand}}</h3>
-            <h3>{{this.model}}</h4>
+            <h3>{{this.brand}}</h3>
+            <h4>{{this.model}}</h4>
             <p>{{this.start_date}} - {{this.end_date}}</p>
           </div>
           <div class="checkout-tool-price">
@@ -17,6 +17,9 @@
           </div>
         </div>
       {{/each}}
+      <div class="total">
+        {{totalPrice}}
+      </div>
     </div>
 
     <div id="billing-info" class="ck-box">
@@ -61,6 +64,6 @@
       <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
       <input type="text" name="cvv" id="cvv" placeholder="352" />
     </div>
-    <button class="btn btn-turquoise">Place order</button>
+    <button class="btn btn-turquoise" id="place-order">Place order</button>
   </form>
 </div>
