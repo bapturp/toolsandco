@@ -1,6 +1,6 @@
 <div id="login-form">
   <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+  <form action="/auth/login" method="POST" class="form-control">
 
     <label>
       Email
@@ -15,7 +15,7 @@
     <button type="submit">Log In</button>
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+    <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
 </div>

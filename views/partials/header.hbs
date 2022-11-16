@@ -15,14 +15,15 @@
             <div id="profile-dropdown" class="d-none">
                 <a href="/profile">My profile</a>
                 <a href="/auth/logout">Log out</a>
+                {{#if isAdmin}}
+                <a href="/admin">Admin dashboard</a>
+                {{/if}}
             </div>
         </div>
 
 
         {{else}}
-        {{#if isAdmin}}
-        ADMIN
-        {{/if}}
+
         <a href="/auth/login" class="btn btn-turquoise">Log in <i class="fa-solid fa-circle-user"></i></a>
         <a href="/auth/signup" class="btn btn-dark-blue">Sign up</a>
         {{/if}}

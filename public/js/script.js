@@ -46,3 +46,23 @@ if (profileBtn) {
     document.querySelector("#profile-dropdown").classList.toggle('d-none')
   })
 }
+
+// Show add tool form on admin 
+const addToolBtn = document.querySelector("#add-tool-btn")
+if (addToolBtn) {
+  addToolBtn.addEventListener('click', () => {
+    document.querySelector(".add-tool").classList.toggle('d-none')
+  })
+}
+
+// Couper l'affichage des dates (!!! crado)
+const trimDate = document.querySelectorAll(".trim-date")
+if (trimDate) {
+  trimDate.forEach((date) => {
+    const trimmed = date.textContent
+    date.textContent = trimmed.substring(0, 15)
+  })
+
+}
+
+
