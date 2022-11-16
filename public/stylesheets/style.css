@@ -216,11 +216,13 @@ body:not(.homepage) {
   width: 100%;
   height: 100%;
   background: var(--dark-blue-transp);
+  transform: translateY(100%);
+  transition: transform 0.5s;
 }
 
 .card:hover .overlayer {
   display: flex;
-  animation: slide-up 0.8s;
+  transform: translateY(0);
 }
 
 @keyframes slide-up {

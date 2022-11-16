@@ -1,0 +1,23 @@
+{{> adminHeader}}
+<main>
+    <section id="tooltypes">
+        <h2>Tool types</h2>
+        {{#each tooltypes}}
+        <span>{{this.name}}</span>
+        {{/each}}
+        <form action="/admin/tools/tooltypes/create" method="post">
+            <input type="text" name="name" placeholder="New tool type name">
+            <button>Add tool type</button>
+        </form>
+    </section>
+    <section id="usecases">
+        <h2>Use cases</h2>
+        {{#each usecases}}
+        <span>{{this.name}}</span>
+        {{/each}}
+        <form action="/admin/tools/usecases/create" method="post">
+            <input type="text" name="name" placeholder="New use case name">
+            <button>Add use case</button>
+        </form>
+    </section>
+</main>

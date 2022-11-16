@@ -1,0 +1,28 @@
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tools */
+
+.tools-table {}
+
+.tools-table tr:first-child {
+    background: var(--turquoise);
+    color: white;
+}
+
+.tools-table img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.edit-tool-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 400px;
+    gap: 1em;
+}

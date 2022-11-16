@@ -1,0 +1,64 @@
+{{> adminHeader}}
+<main>
+    <h1>All tools</h1>
+
+    <section class="tool-tags">
+        <a href="/admin/tools/tool-tags" class="btn">Manage tool types</a>
+        <a href="/admin/tools/tool-tags#usecases" class="btn">Manage use cases</a>
+    </section>
+
+
+    <section class="add-tools-dropdown">
+        <span id="add-tool-btn">Add tool</span>
+        <div class="add-tool">
+            <form action="/admin/tools/create" method="post" enctype="multipart/form-data"
+                class="form-control create-tool-form">
+                <input type="text" name="brand" placeholder="Brand">
+                <input type="text" name="model" placeholder="Model">
+                <textarea name="description" cols="30" rows="10"></textarea>
+                <input type="text" name="price_per_day" placeholder="Price per day">
+                <input type="file" name="picture_url">
+                <select name="tool_type">
+                    {{#each tooltypes}}
+                    <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <div class="usecases-checkboxes-container">
+                    {{#each usecases}}
+                    <input type="checkbox" name="{{this._id}}" id="{{this.name}}" value="{{this._id}}">
+                    <label for="{{this.name}}">{{this.name}}</label>
+                    {{/each}}
+                </div>
+
+                <button class="btn btn-turquoise">Add tool to base</button>
+            </form>
+        </div>
+
+    </section>
+
+    <table class="tools-table">
+        <tr>
+            <th>brand</th>
+            <th>model</th>
+            <th>picture</th>
+            <th>description</th>
+            <th>price per day</th>
+            <th>tool type</th>
+            <th>use cases</th>
+            <th></th>
+        </tr>
+        {{#each tools}}
+        <tr>
+            <td>{{this.brand}}</td>
+            <td>{{this.model}}</td>
+            <td><img src="{{this.picture_url}}" alt=""></td>
+            <td>{{this.description}}</td>
+            <td>{{this.price_per_day}} €</td>
+            <td>{{this.tool_type.name}}</td>
+            <td>{{#each this.use_case}}{{this.name}}{{/each}}</td>
+            <td><a href="/admin/tools/{{this._id}}/edit">Edit</a><a href="/admin/tools/{{this._id}}/delete">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</main>
