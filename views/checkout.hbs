@@ -1,59 +1,66 @@
-<form action="/checkout" method="post">
-  <div class="order-summary">
-    <h2>Order summary</h2>
-    {{#each reservedTools}}
-      <div class="checkout-tool">
-        <div>
-          <h3>{{this.model}}</h3>
-          <h4>{{this.brand}}</h4>
-          <p><span>Description: </span>{{this.description}}</p>
-          <p><span>Price: </span>{{this.price_per_day}}€/day</p>
-          <a href="/tools/{{this._id}}" id="tool-link">View details </a>
-          <a href="/cart/clear-item/{{this._id}}">Remove from cart</a>
-        </div>
-      </div>
-    {{/each}}
+<div id="container-checkout">
 
-  </div>
-  <div class="billing-info">
-    <h2>Biling info</h2>
-    <input
-      type="text"
-      name="address-1"
-      id="address-1"
-      placeholder="Address 1"
-    />
-    <input
-      type="text"
-      name="address-2"
-      id="address-2"
-      placeholder="Address 2"
-    />
-    <input type="text" name="zip-code" id="zip-code" placeholder="75011" />
-    <input type="text" name="town" id="town" placeholder="Paris" />
-    <input type="text" name="phone" id="phone" placeholder="06 12 34 31 75" />
-  </div>
-  <div class="click-collect">
-    <h2>Click &amp; collect</h2>
-    <p>Collect your tool directly from our workshop! We are open Monday to
-      Sunday 9:00 to 19:00.</p>
-  </div>
-  <div class="payment">
-    <h2>Payment</h2>
-    <input
-      type="text"
-      name="cardname"
-      id="cardname"
-      placeholder="Ada Lovelace"
-    />
-    <input
-      type="text"
-      name="cardnumber"
-      id="cardnumber"
-      placeholder="1111-2222-3333-4444"
-    />
-    <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
-    <input type="text" name="cvv" id="cvv" placeholder="352" />
-  </div>
-  <button>Place order</button>
-</form>
+  <form action="/checkout" method="post" class="form-control">
+
+    <div id="order-summary" class="ck-box">
+      <h2>Order summary</h2>
+      {{#each reservedTools}}
+        <div class="checkout-tool">
+          <div class="checkout-tool-description">
+            <h4>{{this.brand}}</h3>
+            <h3>{{this.model}}</h4>
+            <p>{{this.start_date}} - {{this.end_date}}</p>
+          </div>
+          <div class="checkout-tool-price">
+            <p>{{this.duration}}</p>
+            <p>{{this.price}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    <div id="billing-info" class="ck-box">
+      <h2>Biling info</h2>
+      <input
+        type="text"
+        name="address-1"
+        id="address-1"
+        placeholder="Address 1"
+      />
+      <input
+        type="text"
+        name="address-2"
+        id="address-2"
+        placeholder="Address 2"
+      />
+      <input type="text" name="zip-code" id="zip-code" placeholder="75011" />
+      <input type="text" name="town" id="town" placeholder="Paris" />
+      <input type="text" name="phone" id="phone" placeholder="06 12 34 31 75" />
+    </div>
+
+    <div id="click-collect" class="ck-box">
+      <h2>Click &amp; collect</h2>
+      <p>Collect your tool directly from our workshop! We are open Monday to
+        Sunday 9:00 to 19:00.</p>
+    </div>
+
+    <div id="payment" class="ck-box">
+      <h2>Payment</h2>
+      <input
+        type="text"
+        name="cardname"
+        id="cardname"
+        placeholder="Ada Lovelace"
+      />
+      <input
+        type="text"
+        name="cardnumber"
+        id="cardnumber"
+        placeholder="1111-2222-3333-4444"
+      />
+      <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
+      <input type="text" name="cvv" id="cvv" placeholder="352" />
+    </div>
+    <button class="btn btn-turquoise">Place order</button>
+  </form>
+</div>
