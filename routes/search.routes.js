@@ -70,13 +70,13 @@ router.get("/", async (req, res, next) => {
       ]);
     }
 
-        const tooltypesList = await Tooltype.find();
-        const usecasesList = await Usecase.find();
+    const tooltypesList = await Tooltype.find();
+    const usecasesList = await Usecase.find();
 
-        res.render("search", { toolsList, tooltypesList, usecasesList });
-    } catch (error) {
-        next(error);
-    }
+    res.render("search", { toolsList, tooltypesList, usecasesList });
+  } catch (error) {
+    return next(error);
+  }
 });
 
 module.exports = router;

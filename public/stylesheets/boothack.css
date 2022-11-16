@@ -67,3 +67,12 @@
 .flex-wrap {
     flex-wrap: wrap;
 }
+
+/******** Forms ********/
+.form-control input,
+.form-control select {
+    border: 2px solid var(--turquoise);
+    background: white;
+    border-radius: 30px;
+    padding: .5em 1em;
+}
