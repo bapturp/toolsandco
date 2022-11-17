@@ -9,6 +9,20 @@
   <div class="tool-titles">
     <h2>{{tool.model}}</h2>
     <h3>{{tool.brand}}</h3>
+    <div class="tool-buttons">
+      <form action="/tools/{{tool._id}}/addToCart" method="get">
+        <button class="btn btn-turquoise add-to-cart">Add To Cart</button>
+      </form>
+      <form>
+        <input
+          class="btn btn-turquoise back"
+          type="button"
+          value="Go back"
+          onclick="history.back()"
+        />
+      </form>
+    </div>
+
     <div class="tool-characteristics">
       <div class="tool-description">
         <p><span>Description: </span>{{tool.description}}</p>
@@ -25,9 +39,6 @@
         </p>
       </div>
 
-      <form action="/tools/{{tool._id}}/addToCart" method="get">
-        <button class="btn btn-turquoise add-to-cart">Add To Cart</button>
-      </form>
     </div>
 
   </div>

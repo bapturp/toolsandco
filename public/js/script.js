@@ -13,24 +13,26 @@ addToCartBtns.forEach((addToCartBtn) => {
 });
 
 // Handles calendar default dates and forbidden dates
-const startCalendar = document.querySelector("#start_date")
+const startCalendar = document.querySelector("#start_date");
 if (startCalendar) {
-  const endCalendar = document.querySelector("#end_date")
-  var today = new Date().toISOString().split('T')[0];
-  const todayPlusTwo = addDays(Date(), 2).toISOString().split('T')[0];
+  const endCalendar = document.querySelector("#end_date");
+  var today = new Date().toISOString().split("T")[0];
+  const todayPlusTwo = addDays(Date(), 2).toISOString().split("T")[0];
 
-  startCalendar.setAttribute('min', today);
-  startCalendar.setAttribute('value', today)
-  endCalendar.setAttribute('value', todayPlusTwo)
+  startCalendar.setAttribute("min", today);
+  startCalendar.setAttribute("value", today);
+  endCalendar.setAttribute("value", todayPlusTwo);
 
-  startCalendar.addEventListener('change', () => {
-    const selectedStartDate = startCalendar.value
-    const selectedStartDateBla = new Date(selectedStartDate)
-    const inTwoDays = addDays(selectedStartDateBla, 2).toISOString().split('T')[0];
-    endCalendar.setAttribute('min', inTwoDays)
-    endCalendar.setAttribute('value', inTwoDays)
-    endCalendar.showPicker()
-  })
+  startCalendar.addEventListener("change", () => {
+    const selectedStartDate = startCalendar.value;
+    const selectedStartDateBla = new Date(selectedStartDate);
+    const inTwoDays = addDays(selectedStartDateBla, 2)
+      .toISOString()
+      .split("T")[0];
+    endCalendar.setAttribute("min", inTwoDays);
+    endCalendar.setAttribute("value", inTwoDays);
+    endCalendar.showPicker();
+  });
 }
 
 function addDays(date, days) {
@@ -40,45 +42,51 @@ function addDays(date, days) {
 }
 
 // Handles profile menu dropdown
-const profileBtn = document.querySelector("#btn-profile")
+const profileBtn = document.querySelector("#btn-profile");
 if (profileBtn) {
-  profileBtn.addEventListener('click', () => {
-    document.querySelector("#profile-dropdown").classList.toggle('d-none')
-  })
+  profileBtn.addEventListener("click", () => {
+    document.querySelector("#profile-dropdown").classList.toggle("d-none");
+  });
 }
 
-// Show add tool form on admin 
-const addToolBtn = document.querySelector("#add-tool-btn")
+// Show add tool form on admin
+const addToolBtn = document.querySelector("#add-tool-btn");
 if (addToolBtn) {
-  addToolBtn.addEventListener('click', () => {
-    document.querySelector(".add-tool").classList.toggle('d-none')
-  })
+  addToolBtn.addEventListener("click", () => {
+    document.querySelector(".add-tool").classList.toggle("d-none");
+  });
 }
 
 // Couper l'affichage des dates (!!! crado)
-const trimDate = document.querySelectorAll(".trim-date")
+const trimDate = document.querySelectorAll(".trim-date");
 if (trimDate) {
   trimDate.forEach((date) => {
-    const trimmed = date.textContent
-    date.textContent = trimmed.substring(0, 15)
-  })
+    const trimmed = date.textContent;
+    date.textContent = trimmed.substring(0, 15);
+  });
+}
+const trimCartDate = document.querySelectorAll(".trim-cart-date");
+if (trimCartDate) {
+  trimCartDate.forEach((date) => {
+    const trimmed = date.textContent;
+    date.textContent = trimmed.substring(0, 10);
+  });
 }
 
 // Slide in effect on page load for menu
-const nav = document.querySelector(".reg-nav")
+const nav = document.querySelector(".reg-nav");
 if (nav) {
-  window.addEventListener('load', () => {
-    nav.classList.add('slide-from-top')
-
-  })
+  window.addEventListener("load", () => {
+    nav.classList.add("slide-from-top");
+  });
 }
 
 // Type effect of "What's the plan"
-let whatsThePlan = document.getElementById("whats-the-plan")
+let whatsThePlan = document.getElementById("whats-the-plan");
 if (whatsThePlan) {
-  window.addEventListener('load', () => {
-    typeWriter()
-  })
+  window.addEventListener("load", () => {
+    typeWriter();
+  });
 }
 
 let i = 0;
@@ -86,19 +94,17 @@ function typeWriter() {
   let txt = "What's the plan?";
 
   if (i < txt.length) {
-    whatsThePlan.innerHTML += txt.charAt(i)
-    i++
-    setTimeout(typeWriter, 30)
+    whatsThePlan.innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, 30);
   } else {
-    let counter = 0
+    let counter = 0;
     const interval = setInterval(() => {
-      whatsThePlan.classList.toggle('d-none')
-      counter++
-      if (counter > 3) { clearInterval(interval) }
+      whatsThePlan.classList.toggle("d-none");
+      counter++;
+      if (counter > 3) {
+        clearInterval(interval);
+      }
     }, 200);
-
   }
-
 }
-
-
