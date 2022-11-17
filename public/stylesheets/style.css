@@ -42,7 +42,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.wrapper> :first-child {
+.wrapper > :first-child {
   padding-top: 100px;
 }
 
@@ -128,9 +128,8 @@ body {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 1;
-  background: rgb(255, 64, 0)
+  background: rgb(255, 64, 0);
 }
-
 
 /* ********************** Search page ********************** */
 .search-bar {
@@ -243,13 +242,12 @@ body {
   height: 100%;
   background: var(--dark-blue-transp);
   transform: translateY(100%);
-  transition: transform .5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .card:hover .overlayer {
-  transform: translateY(0)
+  transform: translateY(0);
 }
-
 
 /* ********************** Header ********************** */
 header {
@@ -460,7 +458,7 @@ footer * {
   color: red;
 }
 
-/* ********************** Tool detail ********************** */
+/* ********************** Tool details ********************** */
 
 .tool-details {
   display: flex;
@@ -512,4 +510,51 @@ footer * {
 .tool-tags p,
 .tool-tags span {
   font-size: 0.7rem;
+}
+
+/* ********************** Profile page ********************** */
+
+.profile-container {
+  margin: 0 2rem;
+}
+.profile-container section {
+  margin: 2rem 0;
+}
+.profile-infos-bloc {
+  display: flex;
+  justify-content: flex-start;
+}
+.profile-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 10rem;
+  border-bottom: 3px solid #31ccd1;
+  padding-bottom: 2rem;
+}
+
+.profile-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profile-credentials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.profile-infos span {
+  font-size: 1.3rem;
+}
+
+.profile-infos p {
+  font-size: 1.2rem;
+}
+
+.profile-container a {
+  font-size: 1.5rem;
+}
+.profile-container a:hover {
+  color: var(--turquoise);
 }
