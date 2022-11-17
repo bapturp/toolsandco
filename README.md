@@ -8,6 +8,7 @@ Tools&Co is a FullStack Web application made by [@bapturp](https://github.com/ba
 
 **Technologies used**
 
+- Javascript
 - HTML
 - CSS
 - Node
@@ -15,7 +16,7 @@ Tools&Co is a FullStack Web application made by [@bapturp](https://github.com/ba
 - Mongoose
 - MongoDB
 
-It implements 5 database models, full CRUD operations, sign up/login/ogout, 3 differents user roles.
+It implements 5 database models, full CRUD operations, sign up/login/logout, 3 differents user roles.
 
 ## Setup dev environment
 
@@ -38,7 +39,7 @@ cd <dir_name>
 
 ### Setup the .env file
 
-This project require some environment variables to run, it reads the file `.env` on startup. An example file is provided `.env.example`, rename this file to `env` and fill it:
+This project require some environment variables to run, it reads the file `.env` on startup. An example file is provided `.env.example`.
 
 **Environment variables:**
 
@@ -57,7 +58,7 @@ npm install
 
 ### Seed the database
 
-To get some data shown on the app, you can use the following command:
+Default data can be seed in the database with the following command.
 
 ```sh
 npm run seed
