@@ -81,7 +81,7 @@ router.post("/tools/create", exposeUserInfo, uploader.single('picture_url'), asy
   } catch (err) {
     return next(err)
   }
-);
+});
 
 // Get edit tool page
 router.get("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, async (req, res, next) => {
@@ -96,7 +96,7 @@ router.get("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, async (req, r
   } catch (error) {
     return next(error)
   }
-);
+});
 
 // Save edits
 router.post("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, uploader.single('picture_url'), async (req, res, next) => {
@@ -108,7 +108,7 @@ router.post("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, uploader.sin
   } catch (error) {
     return next(error)
   }
-);
+});
 
 // Get tool types & use cases
 router.get(
