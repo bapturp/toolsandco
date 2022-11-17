@@ -55,7 +55,9 @@ router.get("/", async (req, res, next) => {
         ],
       }).populate("tool");
       allResas.forEach((resa) => {
-        excludedTools.push(resa.tool._id);
+        if (resa.tool) {
+          excludedTools.push(resa.tool._id);
+        }
       });
     }
     let toolsList;

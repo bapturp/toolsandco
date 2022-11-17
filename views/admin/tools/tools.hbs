@@ -51,31 +51,34 @@
 
     <table class="table-control tools-table">
         <tr>
+            <th></th>
             <th>brand</th>
             <th>model</th>
-            <th>picture</th>
             <th>description</th>
-            <th>price per day</th>
+            <th>price/day</th>
             <th>tool type</th>
             <th>use cases</th>
             <th></th>
         </tr>
         {{#each tools}}
         <tr>
-            <td>{{this.brand}}</td>
-            <td>{{this.model}}</td>
             <td><img src="{{this.picture_url}}" alt=""></td>
-            <td>{{this.description}}</td>
+            <td>{{this.brand}}</td>
+            <td class="table-model">{{this.model}}</td>
+            <td class="table-desc">{{this.description}}</td>
             <td>{{this.price_per_day}} €</td>
             <td>{{this.tool_type.name}}</td>
-            <td>{{#each this.use_case}}{{this.name}}{{/each}}</td>
+            <td class="table-tool-tags">{{#each this.use_case}}<span class="tool-tag">{{this.name}}</span>{{/each}}</td>
             <td>
-                <a href="/admin/tools/{{this._id}}/edit"><i class="fa-solid fa-pen-to-square"></i></a>
-                <form action="/admin/tools/{{this._id}}/delete" method="post">
-                    <button>
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </form>
+                <div class="d-flex tool-edit-delete-buttons">
+                    <a href="/admin/tools/{{this._id}}/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <form action="/admin/tools/{{this._id}}/delete" method="post">
+                        <button>
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
+
             </td>
         </tr>
         {{/each}}

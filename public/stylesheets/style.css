@@ -20,6 +20,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 :root {
   --dark-blue: #29339B;
   --dark-blue-transp: rgba(41, 51, 155, 0.8);
@@ -34,10 +39,11 @@ body {
   min-height: 100vh;
   position: relative;
   padding-bottom: 300px;
+  scroll-behavior: smooth;
 }
 
-body:not(.homepage) {
-  padding-top: 70px;
+.wrapper> :first-child {
+  padding-top: 100px;
 }
 
 #tool-link {
@@ -63,7 +69,7 @@ body:not(.homepage) {
   color: var(--turquoise);
 }
 
-#home-top .whats-the-plan {
+#home-top #whats-the-plan {
   width: 100%;
   font-size: 2em;
   margin-bottom: .3em;
@@ -102,6 +108,24 @@ body:not(.homepage) {
 .home-search ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+
+.activities {
+  transform: translateY(-100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.activities article {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  background: rgb(255, 64, 0)
+}
+
 
 /* ********************** Search page ********************** */
 .search-bar {
@@ -170,6 +194,8 @@ body:not(.homepage) {
 .card picture {
   display: block;
   width: 80%;
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 
 .tool-info {
@@ -193,7 +219,7 @@ body:not(.homepage) {
   position: absolute;
   right: 1em;
   top: 1em;
-  font-size: .9em;
+  font-size: 1em;
   background: var(--turquoise);
   padding: .5em 1.5em;
   border-radius: 30px;
@@ -201,7 +227,7 @@ body:not(.homepage) {
 }
 
 .overlayer {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -212,23 +238,13 @@ body:not(.homepage) {
   height: 100%;
   background: var(--dark-blue-transp);
   transform: translateY(100%);
-  transition: transform .5s;
+  transition: transform .5s ease-out;
 }
 
 .card:hover .overlayer {
-  display: flex;
   transform: translateY(0)
 }
 
-@keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
 
 /* ********************** Header ********************** */
 header {
@@ -246,6 +262,14 @@ header.reg-nav {
   background: var(--dark-blue-transp);
   padding: 1em 10%;
   color: white;
+  transform: translateY(-120%);
+  transition: 1s ease-out;
+  box-shadow: 0 4px 15px 0 rgba(41, 51, 155, 0.4);
+  z-index: 100;
+}
+
+header.reg-nav.slide-from-top {
+  transform: translateY(0);
 }
 
 header.home-nav {
