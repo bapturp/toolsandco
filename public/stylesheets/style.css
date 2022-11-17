@@ -25,6 +25,23 @@ button {
   cursor: pointer;
 }
 
+select:focus,
+select:focus-visible {
+  border: none;
+  outline: none;
+}
+
+select * {
+  padding: 1em;
+}
+
+select option {
+  background: var(--turquoise);
+  color: white;
+  font-size: 18px;
+  transition: .5s;
+}
+
 :root {
   --dark-blue: #29339b;
   --dark-blue-transp: rgba(41, 51, 155, 0.8);
@@ -96,7 +113,7 @@ body {
   font-size: 2em;
   flex-wrap: wrap;
   margin-bottom: 2em;
-  line-height: 2em;
+  row-gap: 1.5em;
 }
 
 .home-search input,

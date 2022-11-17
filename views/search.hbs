@@ -1,24 +1,40 @@
 <section class="search-bar">
     <form action="/search" method="get" id="search-form">
         <select name="tool_type">
+            {{#if search.tool_type}}
+            <option value="{{search.tool_type}}" selected>{{search.tool_type}}</option>
+            {{else}}
             <option value="" selected>All tools</option>
+            {{/if}}
             {{#each tooltypesList}}
             <option value="{{this.name}}">{{this.name}}</option>
             {{/each}}
+            {{#if search.tool_type}}
+            <option value="">All tools</option>
+            {{/if}}
         </select>
         <select name="use_case" id="">
+            {{#if search.use_case}}
+            <option value="{{search.use_case}}" selected>{{search.use_case}}</option>
+            {{else}}
             <option value="" selected>All activities</option>
+            {{/if}}
             {{#each usecasesList}}
             <option value="{{this.name}}">{{this.name}}</option>
             {{/each}}
+            {{#if search.use_case}}
+            <option value="">All activities</option>
+            {{/if}}
         </select>
         <div class="calendar">
-            <input type="date" name="start_date" id="start_date" />
-            <input type="date" name="end_date" id="end_date" />
+            <input type="date" name="start_date" id="start_date" {{#if search.start_date}}value="{{search.start_date}}"
+                {{/if}} />
+            <input type="date" name="end_date" id="end_date" {{#if search.end_date}}value="{{search.end_date}}"
+                {{/if}} />
         </div>
 
 
-        <button class="btn btn-dark-blue">Search</button>
+        <button class=" btn btn-dark-blue">Search</button>
     </form>
 </section>
 
