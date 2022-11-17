@@ -406,14 +406,37 @@ header .nav-buttons {
 .ck-box {
   border: 2px solid var(--turquoise);
   width: 100%;
+  padding: 1rem;
+}
+
+#payment > div {
+  display: flex;
+  flex-direction: column;
+  /* padding: 1rem; */
 }
 
 #container-checkout h2 {
   color: var(--dark-blue);
   font-family: var(--inconsolata);
   font-size: 2em;
-  padding: 1rem;
-  /* text-align: center; */
+  margin-bottom: 2rem;
+}
+
+.payment-info {
+  max-width: 380px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#place-order {
+  display: flex;
+  justify-content: center; /* main axis*/
+}
+
+#place-order button {
+  width: 300px;
+  max-width: 100%;
 }
 
 /* ********************** Footer ********************** */
