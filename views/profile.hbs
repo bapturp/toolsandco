@@ -1,35 +1,45 @@
-<h1>Profile</h1>
+<div class="profile-container">
+  <h1>Profile</h1>
 
-<section>
-  <h2>Infos</h2>
-  <p><span>Name: </span>{{currentUser.username}}</p>
-  <p><span>Email: </span>{{currentUser.email}}</p>
-  <a href="/profile/change">Change credentials</a>
-  {{#if savedChanges}}
-    <p>{{savedChanges}}</p>
-  {{/if}}
-</section>
+  <section class="profile-infos">
+    <h2>Infos</h2>
+    <div class="profile-infos-bloc">
+      <div class="profile-labels">
+        <span>Name: </span>
+        <span>Email: </span>
+      </div>
+      <div class="profile-credentials">
+        <p>{{currentUser.username}}</p>
+        <p>{{currentUser.email}}</p>
+      </div>
+    </div>
 
-<section id="current-reservations">
-  <h2>Current reservations</h2>
-  {{#if currentReservations}}
-    <table class="table-control">
-      <tr>
-        <th>Tool type</th>
-        <th>Tool</th>
-        <th>Start date</th>
-        <th>End date</th>
-      </tr>
-      {{#each currentReservations}}
+    <a href="/profile/change">Change credentials</a>
+    {{#if savedChanges}}
+      <p>{{savedChanges}}</p>
+    {{/if}}
+  </section>
+
+  <section id="current-reservations">
+    <h2>Current reservations</h2>
+    {{#if currentReservations}}
+      <table class="table-control">
         <tr>
-          <td>{{this.tool.tool_type.name}}</td>
-          <td>{{this.tool.model}}</td>
-          <td class="trim-date">{{this.start_date}}</td>
-          <td class="trim-date">{{this.end_date}}</td>
+          <th>Tool type</th>
+          <th>Tool</th>
+          <th>Start date</th>
+          <th>End date</th>
         </tr>
-      {{/each}}
-    </table>
-    {{!-- {{#each currentReservations}}
+        {{#each currentReservations}}
+          <tr>
+            <td>{{this.tool.tool_type.name}}</td>
+            <td>{{this.tool.model}}</td>
+            <td class="trim-date">{{this.start_date}}</td>
+            <td class="trim-date">{{this.end_date}}</td>
+          </tr>
+        {{/each}}
+      </table>
+      {{!-- {{#each currentReservations}}
       <div>
         <span>{{this.tool.brand}} {{this.tool.model}}</span>
         <p><span>Start date: </span>{{this.start_date}}</p>
@@ -37,40 +47,41 @@
       </div>
 
     {{/each}} --}}
-  {{else}}
-    <p>No current reservations</p>
-  {{/if}}
+    {{else}}
+      <p>No current reservations</p>
+    {{/if}}
 
-</section>
+  </section>
 
-<section id="passed-reservations">
-  <h2>Passed reservations</h2>
-  {{#if passedReservations}}
-    <table class="table-control">
-      <tr>
-        <th>Tool type</th>
-        <th>Tool</th>
-        <th>Start date</th>
-        <th>End date</th>
-      </tr>
-      {{#each passedReservations}}
+  <section id="passed-reservations">
+    <h2>Passed reservations</h2>
+    {{#if passedReservations}}
+      <table class="table-control">
         <tr>
-          <td>{{this.tool.tool_type.name}}</td>
-          <td>{{this.tool.model}}</td>
-          <td class="trim-date">{{this.start_date}}</td>
-          <td class="trim-date">{{this.end_date}}</td>
+          <th>Tool type</th>
+          <th>Tool</th>
+          <th>Start date</th>
+          <th>End date</th>
         </tr>
-      {{/each}}
-    </table>
-    {{!-- {{#each passedReservations}}
+        {{#each passedReservations}}
+          <tr>
+            <td>{{this.tool.tool_type.name}}</td>
+            <td>{{this.tool.model}}</td>
+            <td class="trim-date">{{this.start_date}}</td>
+            <td class="trim-date">{{this.end_date}}</td>
+          </tr>
+        {{/each}}
+      </table>
+      {{!-- {{#each passedReservations}}
       <div>
         <span>{{this.tool.brand}} {{this.tool.model}}</span>
         <p><span>Start date: </span>{{this.start_date}}</p>
         <p><span>End date: </span>{{this.end_date}}</p>
       </div>
     {{/each}} --}}
-  {{else}}
-    <p>No passed reservations</p>
-  {{/if}}
+    {{else}}
+      <p>No passed reservations</p>
+    {{/if}}
 
-</section>
+  </section>
+</div>
