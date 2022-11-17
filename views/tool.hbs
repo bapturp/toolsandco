@@ -10,14 +10,26 @@
     <h2>{{tool.model}}</h2>
     <h3>{{tool.brand}}</h3>
     <div class="tool-buttons">
-      <form action="/tools/{{tool._id}}/addToCart" method="get">
-        <button class="btn btn-turquoise add-to-cart">Add To Cart</button>
-      </form>
+      {{#if date.start}}
+        <form action="/tools/{{tool._id}}/addToCart" method="post">
+          <button class="btn btn-turquoise">Add To Cart</button>
+        </form>
+      {{else}}
+        <form action="/tools/{{tool._id}}/addToCart" method="post">
+          <label for="start-date">From</label>
+          <input type="date" name="start-date" />
+          <label for="end-date">To</label>
+          <input type="date" name="end-date" />
+          <button class="btn btn-turquoise">Add to cart</button>
+        </form>
+      {{/if}}
       <a href="{{previousUrl}}"><button
           class="btn btn-turquoise back"
         >Back</button></a>
     </div>
-
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
     <div class="tool-characteristics">
       <div class="tool-description">
         <p><span>Description: </span>{{tool.description}}</p>
