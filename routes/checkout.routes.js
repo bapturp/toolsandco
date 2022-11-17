@@ -42,7 +42,7 @@ router.get("/", isLoggedIn, exposeUserInfo, async (req, res) => {
   }
 });
 
-router.post("/", isLoggedIn, async (req, res) => {
+router.post("/", exposeUserInfo, isLoggedIn, async (req, res, next) => {
   try {
     const tools = req.session.cart;
     const start_date = req.session.date.start;
