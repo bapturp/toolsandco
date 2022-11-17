@@ -192,7 +192,17 @@ body {
 }
 
 /* Tool card */
-
+.block {
+  display: block;
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart-buttons {
+  display: flex;
+}
 .card {
   position: relative;
   display: flex;
@@ -206,7 +216,36 @@ body {
   padding: 1em;
   overflow: hidden;
 }
-
+.dates {
+  font-size: 2rem;
+}
+.cart-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+.cart-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  max-width: 300px;
+  border: 2px solid var(--turquoise);
+  padding: 1em;
+  margin: 2rem;
+  overflow: hidden;
+}
+.cart-item a {
+  font-weight: bold;
+}
+.cart-item a:hover {
+  color: var(--turquoise);
+  font-weight: bolder;
+}
 .card:hover {
   border: 2px solid var(--dark-blue);
   transition: 0.8s;
@@ -494,6 +533,13 @@ footer * {
 #btn-credential {
   margin: 2rem;
 }
+
+.profile-page-link {
+  margin: 2rem;
+}
+.profile-page-link button {
+  width: 16rem;
+}
 .error {
   color: red;
 }
@@ -506,24 +552,27 @@ footer * {
 }
 
 .tool-detail-img-container {
-  width: 50%;
-  border: 2px solid var(--turquoise);
-  border-radius: 5rem;
+  width: 65%;
+  height: auto;
   margin-top: 2rem;
   margin-left: 2rem;
   overflow: hidden;
 }
 .tool-detail-img {
-  width: 100rem;
+  border: 2px solid var(--turquoise);
+  border-radius: 5rem;
+  width: 40rem;
 }
 
 .tool-titles {
-  margin: 5rem;
-  width: 50%;
+  margin: 2rem;
+  width: 35%;
 }
-
+.tool-buttons {
+  margin-top: 2rem;
+}
 .tool-characteristics {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .tool-characteristics p {
@@ -536,7 +585,7 @@ footer * {
 
 .tool-description {
   margin: 2rem 0;
-  width: 50%;
+  width: 70%;
 }
 
 .tool-price {
@@ -549,12 +598,16 @@ footer * {
 
 .tool-tags p,
 .tool-tags span {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+}
+.back {
+  width: 11.6rem;
 }
 
 /* ********************** Profile page ********************** */
 
 .profile-container {
+  display: block;
   margin: 0 2rem;
 }
 .profile-container section {
@@ -598,3 +651,5 @@ footer * {
 .profile-container a:hover {
   color: var(--turquoise);
 }
+
+/* ********************** Cart ********************** */

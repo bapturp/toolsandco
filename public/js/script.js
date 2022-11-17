@@ -13,8 +13,9 @@ addToCartBtns.forEach((addToCartBtn) => {
 });
 
 // Handles calendar default dates and forbidden dates
-const startCalendar = document.querySelector("#start_date")
+const startCalendar = document.querySelector("#start_date");
 if (startCalendar) {
+
   const endCalendar = document.querySelector("#end_date")
   var today = new Date().toISOString().split('T')[0];
   const todayPlusTwo = addDays(Date(), 2).toISOString().split('T')[0];
@@ -36,6 +37,7 @@ if (startCalendar) {
     endCalendar.setAttribute('value', inTwoDays)
     endCalendar.showPicker()
   })
+
 }
 
 function addDays(date, days) {
@@ -45,28 +47,33 @@ function addDays(date, days) {
 }
 
 // Handles profile menu dropdown
-const profileBtn = document.querySelector("#btn-profile")
+const profileBtn = document.querySelector("#btn-profile");
 if (profileBtn) {
-  profileBtn.addEventListener('click', () => {
-    document.querySelector("#profile-dropdown").classList.toggle('d-none')
-  })
+  profileBtn.addEventListener("click", () => {
+    document.querySelector("#profile-dropdown").classList.toggle("d-none");
+  });
 }
 
-// Show add tool form on admin 
-const addToolBtn = document.querySelector("#add-tool-btn")
+// Show add tool form on admin
+const addToolBtn = document.querySelector("#add-tool-btn");
 if (addToolBtn) {
-  addToolBtn.addEventListener('click', () => {
-    document.querySelector(".add-tool").classList.toggle('d-none')
-  })
+  addToolBtn.addEventListener("click", () => {
+    document.querySelector(".add-tool").classList.toggle("d-none");
+  });
 }
 
 // Couper l'affichage des dates (!!! crado)
-const trimDate = document.querySelectorAll(".trim-date")
+const trimDate = document.querySelectorAll(".trim-date");
 if (trimDate) {
   trimDate.forEach((date) => {
-    const trimmed = date.textContent
-    date.textContent = trimmed.substring(0, 15)
-  })
+    const trimmed = date.textContent;
+    date.textContent = trimmed.substring(0, 15);
+  });
 }
-
-
+const trimCartDate = document.querySelectorAll(".trim-cart-date");
+if (trimCartDate) {
+  trimCartDate.forEach((date) => {
+    const trimmed = date.textContent;
+    date.textContent = trimmed.substring(0, 10);
+  });
+}

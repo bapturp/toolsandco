@@ -1,116 +1,116 @@
 /* Buttons */
 .btn {
-    border-radius: 50px;
-    padding: .5em 2em;
-    font-size: 1.2em;
-    cursor: pointer;
-    display: inline-block;
+  border-radius: 50px;
+  padding: 0.5em 2em;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .btn-turquoise {
-    background: var(--turquoise);
-    border: 2px solid var(--white);
-    color: var(--white);
-    transition: .5s;
+  background: var(--turquoise);
+  border: 2px solid var(--white);
+  color: var(--white);
+  transition: 0.5s;
 }
 
 .btn-turquoise:hover {
-    background: var(--white);
-    color: var(--turquoise);
-    border: 2px solid var(--turquoise);
+  background: var(--white);
+  color: var(--turquoise);
+  border: 2px solid var(--turquoise);
 }
 
 .btn-dark-blue {
-    background: var(--dark-blue);
-    border: 2px solid var(--white);
-    color: var(--white);
-    transition: .5s;
+  background: var(--dark-blue);
+  border: 2px solid var(--white);
+  color: var(--white);
+  transition: 0.5s;
 }
 
 .btn-dark-blue:hover {
-    background: var(--white);
-    color: var(--dark-blue);
-    border: 2px solid var(--dark-blue);
+  background: var(--white);
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
 }
 
 /* Basic styling */
 h1 {
-    font-size: 3em;
+  font-size: 3em;
 }
 
 h2 {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 h3 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 /* Sizing */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .col-30 {
-    width: 30%;
+  width: 30%;
 }
 
 .col-50 {
-    width: 50%;
+  width: 50%;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 /* Margins */
 .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /******** Display ********/
 .d-none {
-    display: none;
+  display: none;
 }
 
 /* Flex */
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .justify-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .align-items-center {
-    align-items: center;
+  align-items: center;
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .justify-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 /******** Forms ********/
 .form-control input,
 .form-control select,
 .form-control textarea {
-    border: 2px solid var(--turquoise);
-    background: white;
-    border-radius: 30px;
-    padding: .5em 1em;
-    margin: .5em 0;
+  border: 2px solid var(--turquoise);
+  background: white;
+  border-radius: 30px;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
 }
 
 /******** Tables ********/
@@ -118,31 +118,31 @@ h3 {
 table,
 td,
 th {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .table-control {
-    width: 100%;
-    border: 2px solid var(--turquoise);
+  width: 100%;
+  border: 2px solid var(--turquoise);
 }
 
 .table-control tr:first-child {
-    background: var(--turquoise);
-    color: white;
+  background: var(--turquoise);
+  color: white;
 }
 
 .table-control tr {
-    border: none;
-    border-collapse: collapse;
-    border-spacing: 0;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .table-control tr:nth-child(even) {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .table-control td,
 .table-control th {
-    text-align: left;
-    padding: .6em .4em;
+  text-align: left;
+  padding: 0.6em 0.4em;
 }
