@@ -4,9 +4,10 @@ const Tool = require("./../models/Tool.model");
 const Tooltype = require("./../models/Tooltype.model");
 const Usecase = require("./../models/Usecase.model");
 const Reservation = require("./../models/Reservation.model");
+const getActualUrl = require("./../middlewares/getActualUrl");
 
 // Display all tools if no query, else display corresponding search results
-router.get("/", async (req, res, next) => {
+router.get("/", getActualUrl, async (req, res, next) => {
   try {
     const queriedTools = {};
     const excludedTools = [];
@@ -15,9 +16,8 @@ router.get("/", async (req, res, next) => {
       tool_type: req.query.tool_type,
       use_case: req.query.use_case,
       start_date: req.query.start_date,
-      end_date: req.query.end_date
-    }
-    console.log(search)
+      end_date: req.query.end_date,
+    };
     if (query.tool_type) {
       const toolTypeId = await Tooltype.findOne({ name: query.tool_type });
       queriedTools.tool_type = toolTypeId;
@@ -77,8 +77,12 @@ router.get("/", async (req, res, next) => {
       ]);
     }
 
-    const tooltypesList = await Tooltype.find({ name: { $nin: [search.tool_type] } });
-    const usecasesList = await Usecase.find({ name: { $nin: [search.use_case] } });
+    const tooltypesList = await Tooltype.find({
+      name: { $nin: [search.tool_type] },
+    });
+    const usecasesList = await Usecase.find({
+      name: { $nin: [search.use_case] },
+    });
 
     res.render("search", { toolsList, tooltypesList, usecasesList, search });
   } catch (error) {

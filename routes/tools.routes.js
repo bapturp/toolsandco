@@ -3,18 +3,19 @@ const router = express.Router();
 const Tool = require("./../models/Tool.model");
 
 // Render all the tools
-router.get("/", async (req, res, next) => {
-  try {
-    const toolsList = await Tool.find().populate("use_case");
-    res.render("tools", { toolsList });
-  } catch (error) {
-    next(error);
-  }
-});
+// router.get("/", async (req, res, next) => {
+//   try {
+//     const toolsList = await Tool.find().populate("use_case");
+//     res.render("tools", { toolsList });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 // Render one particular tool
 router.get("/:id", async (req, res, next) => {
   try {
+    res.locals.previousUrl = req.session.previousUrl;
     const id = req.params.id;
     const tool = await Tool.findById(id).populate("use_case");
     res.render("tool", { tool });

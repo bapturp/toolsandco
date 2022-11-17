@@ -39,7 +39,7 @@ select option {
   background: var(--turquoise);
   color: white;
   font-size: 18px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 :root {
@@ -494,7 +494,11 @@ header .nav-buttons {
   width: 300px;
   max-width: 100%;
 }
-
+.cancel-order {
+  display: flex;
+  justify-content: center;
+  opacity: 0.3;
+}
 /* ********************** Footer ********************** */
 
 footer {

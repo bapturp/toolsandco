@@ -5,8 +5,9 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 
 const Tool = require("../models/Tool.model");
 const Reservation = require("../models/Reservation.model");
+const exposeUserInfo = require("../middlewares/exposeUserInfo");
 
-router.get("/", isLoggedIn, async (req, res) => {
+router.get("/", isLoggedIn, exposeUserInfo, async (req, res) => {
   try {
     // Check if the cart is not empty
     if (req.session.cart.length !== 0) {
@@ -60,6 +61,11 @@ router.post("/", isLoggedIn, async (req, res) => {
   } catch (error) {
     next(error);
   }
+});
+
+router.get("/cancel", (req, res, next) => {
+  req.session.cart = [];
+  res.redirect("/");
 });
 
 module.exports = router;
