@@ -5,6 +5,9 @@
   font-size: 1.2em;
   cursor: pointer;
   display: inline-block;
+  background: white;
+  color: var(--turquoise);
+  border: 2px solid white;
 }
 
 .btn-turquoise {
@@ -20,7 +23,8 @@
   border: 2px solid var(--turquoise);
 }
 
-.btn-dark-blue {
+.btn-dark-blue,
+.btn:hover {
   background: var(--dark-blue);
   border: 2px solid var(--white);
   color: var(--white);
@@ -40,6 +44,7 @@ h1 {
 
 h2 {
   font-size: 2em;
+  color: var(--dark-blue);
 }
 
 h3 {
@@ -47,16 +52,16 @@ h3 {
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 /* Sizing */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 .col-30 {
@@ -78,15 +83,15 @@ h3 {
 }
 
 .row-gap-1 {
-    row-gap: 1em;
+  row-gap: 1em;
 }
 
 .col-gap-1 {
-    column-gap: 1em;
+  column-gap: 1em;
 }
 
 .gap-1 {
-    gap: 1em;
+  gap: 1em;
 }
 
 

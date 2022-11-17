@@ -1,53 +1,64 @@
-<div class="container block">
-  <h1>Cart</h1>
+<section class="container flex-column">
+  <a href="{{previousUrl}}" class="back-btn"><i class="fa-solid fa-chevron-left"></i>
+    <span>Continue shopping</span>
+  </a>
+  <div class="block container">
+    <div class="cart-header">
+      <h1>Cart</h1>
 
-  {{#if cart}}
-    <div class="card-container">
-      <div class="cart-buttons">
-        <a href="/cart/clear"><button class="btn btn-turquoise">Clear Cart</button></a>
-        <a href="/checkout"><button class="btn btn-turquoise">Checkout</button>
-        </a>
-        <a href="{{previousUrl}}"><button
-            class="btn btn-turquoise back"
-          >Back</button></a>
-      </div>
-    </div>
-    <h2>Total: {{totalPrice}} €</h2>
+      {{#if cart}}
 
-    <div class="dates">
-      <span>From: </span>
-      <span class="trim-cart-date">{{date.start}}</span>
-      <span>To: </span>
-      <span class="trim-cart-date">{{date.end}}</span>
+
+      <a href="/cart/clear">Clear Cart <i class="fa-solid fa-trash"></i></a>
     </div>
 
-    <div class="cart-list">
+
+
+    <section class="cart-list">
       {{#each reservedTools}}
-        <div class="cart-item">
-          <h2>{{this.model}}</h2>
-          <h3>{{this.brand}}</h3>
+      <div class="cart-item">
+        <div class="cart-item-info">
           <picture>
-            <img
-              class="tool-image"
-              src="{{this.picture_url}}"
-              alt="{{this.model}}"
-            />
+            <img class="tool-image" src="{{this.picture_url}}" alt="{{this.model}}" />
           </picture>
-          <p><span>Price: </span>{{this.price_per_day}}€/day</p>
-          <a href="/tools/{{this._id}}" id="tool-link">View details </a>
-          <a href="/cart/clear-item/{{this._id}}">Remove from cart</a>
-          <p>
-            <span>tags: </span>
-            {{#each this.use_case}}
-              <span class="use-case">{{this.name}}</span>
-            {{/each}}
-          </p>
+          <div class="tool-info">
+            <h3>{{this.brand}}</h3>
+            <a href="/tools/{{tool._id}}" id="tool-link">
+              <h2>{{this.model}}</h2>
+            </a>
+            <div class="price">{{this.price_per_day}}€/day</div>
+          </div>
 
         </div>
-      {{/each}}
-    </div>
 
-  {{else}}
-    <h2>Your cart is empty 😢</h2>
+        <div class="cart-item-btn d-flex flex-column gap-1">
+          <a href="/cart/clear-item/{{this._id}}" class="btn btn-turquoise">Remove <i class="fa-solid fa-trash"></i></a>
+        </div>
+      </div>
+
+      {{/each}}
+      <div class="recap">
+        <div>
+          <h2>Total: {{totalPrice}}€</h2>
+
+          <div class="dates">
+            <span>From: </span>
+            <span class="trim-cart-date">{{date.start}}</span>
+            <span>To: </span>
+            <span class="trim-cart-date">{{date.end}}</span>
+          </div>
+        </div>
+        <div>
+          <a href="/checkout" class="btn">Checkout</a>
+        </div>
+      </div>
+    </section>
+
+
+    {{else}}
+  </div>
+
+  <h2>Your cart is empty 😢</h2>
   {{/if}}
-</div>
+  </div>
+</section>
