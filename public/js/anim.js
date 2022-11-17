@@ -25,7 +25,7 @@ function typeWriter() {
     } else {
         let counter = 0
         const interval = setInterval(() => {
-            whatsThePlan.classList.toggle('d-none')
+            whatsThePlan.classList.toggle('opacity-0')
             counter++
             if (counter > 3) { clearInterval(interval) }
         }, 250);
@@ -33,24 +33,42 @@ function typeWriter() {
 }
 
 
-// About section animation
-const darkBox = document.querySelector('#darkbluebox')
-const turquoiseBox = document.querySelector('#turquoisebox')
-if (darkBox) {
+// About section & top images animations
+const isHome = document.querySelector('.homepage')
+if (isHome) {
+    const darkBox = document.querySelector('#darkbluebox')
+    const turquoiseBox = document.querySelector('#turquoisebox')
+    const imgAbout = document.querySelector(".illu img")
     window.addEventListener('scroll', () => {
-        var element = document.querySelector('.about');
-        var position = element.getBoundingClientRect();
-
-        // checking whether fully visible
-        if (position.top >= 0 && position.bottom <= window.innerHeight) {
-            darkBox.classList.add('arrived')
-        }
-
+        const about = document.querySelector('.about');
+        const aboutPosition = about.getBoundingClientRect();
         // checking for partial visibility
-        if (position.top < window.innerHeight && position.bottom >= 0) {
+        if (aboutPosition.top < window.innerHeight && aboutPosition.bottom >= 0) {
+            turquoiseBox.classList.add('arrived')
+            darkBox.classList.add('arrived')
+            imgAbout.classList.add('arrived')
+        } else {
+            turquoiseBox.classList.remove('arrived')
             darkBox.classList.remove('arrived')
+            imgAbout.classList.remove('arrived')
         }
     })
 }
 
 // Fake lazy load on products
+const tools = document.querySelectorAll('.tool-card')
+if (tools) {
+
+    window.addEventListener('load', appear)
+    window.addEventListener('scroll', appear)
+
+    function appear() {
+        tools.forEach((tool) => {
+            const toolPos = tool.getBoundingClientRect()
+            console.log(toolPos)
+            if (toolPos.top < window.innerHeight && toolPos.bottom >= 0) {
+                tool.classList.add("opaque")
+            }
+        })
+    }
+}

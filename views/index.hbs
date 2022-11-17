@@ -3,24 +3,37 @@
 
         <div class="home-search">
             <div id="whats-the-plan"></div>
-            I need
-            <select name="tool_type">
-                <option value="" selected>a tool</option>
-                {{#each tooltypesList}}
-                <option value="{{this.name}}">{{this.name}}</option>
-                {{/each}}
-            </select>
-            to
-            <select name="use_case" id="">
-                <option value="" selected>do something</option>
-                {{#each usecasesList}}
-                <option value="{{this.name}}">{{this.name}}</option>
-                {{/each}}
-            </select>
-            starting
-            <input type="date" name="start_date" id="start_date" placeholder="today" />
-            until
-            <input type="date" name="end_date" id="end_date" />
+            <div class="search-fields">
+                <div>I need
+                    <select name="tool_type">
+                        <option value="" selected>a tool</option>
+                        {{#each tooltypesList}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div>
+                    to
+                    <select name="use_case" id="">
+                        <option value="" selected>do something</option>
+                        {{#each usecasesList}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+            </div>
+            <div class="search-fields">
+                <div>starting
+                    <input type="date" name="start_date" id="start_date" placeholder="today" />
+                </div>
+                <div>
+                    until
+                    <input type="date" name="end_date" id="end_date" />
+                </div>
+
+            </div>
+
         </div>
         <button class="btn btn-turquoise">Let's do this</button>
     </form>
@@ -63,8 +76,11 @@
     </div>
     <div class="about-text">
         <h3>About us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad libero, deserunt, ratione explicabo rerum
-            consequuntur ipsum perferendis id natus pariatur exercitationem blanditiis hic, molestias eum rem. Ab
-            adipisci harum illo.</p>
+        <p>Lorem ipsum dolor sit amet consectetur. Egestas vulputate justo congue enim semper vulputate egestas at
+            ipsum. Commodo pulvinar ultrices nulla lorem sed. Orci imperdiet massa nam diam aliquam quam. Donec in vitae
+            suscipit orci. Bibendum adipiscing quis dictum ligula. Risus volutpat condimentum augue faucibus nunc.</p>
+        <p>Felis risus nibh sit at erat auctor viverra lacus facilisis. Sed leo arcu ligula ullamcorper neque.
+            Ullamcorper lacus nibh blandit viverra.
+            Nullam sed risus quis viverra. Tincidunt.</p>
     </div>
 </section>
