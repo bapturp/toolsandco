@@ -1,24 +1,16 @@
-<div id="form">
+<section id="login-form" class="auth-form">
   <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST" class="form-control">
+    <input type="text" name="username" placeholder="Your username" />
+    <input type="email" name="email" placeholder="Your email" />
+    <input type="password" name="password" placeholder="Your password" />
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Sign Up</button>
+    <button type="submit" class="btn btn-turquoise">Sign Up</button>
 
 
     {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}}
+    <p>Altready have an account? <a href="/auth/login">Log in</a></p>
   </form>
-</div>
+</section>

@@ -1,12 +1,12 @@
 <div class="card">
     <picture>
-        <img class="tool-image" src="{{this.picture_url}}" alt="{{this.model}}" />
+        <img class="tool-image" src="{{tool.picture_url}}" alt="{{tool.model}}" />
     </picture>
     <div class="tool-info">
-        <h3>{{this.brand}}</h3>
-        <h2>{{this.model}}</h2>
+        <h3>{{tool.brand}}</h3>
+        <h2>{{tool.model}}</h2>
         <p>
-            {{#each this.use_case}}
+            {{#each tool.use_case}}
             <span class="use-case">{{this.name}} -</span>
             {{/each}}
         </p>
@@ -14,13 +14,15 @@
 
 
 
-    <div class="price-tag">{{this.price_per_day}}€/day</div>
+    <div class="price-tag">{{tool.price_per_day}}€/day</div>
 
 
     <div class="overlayer">
-        <a href="/tools/{{this._id}}" id="tool-link" class="btn btn-dark-blue">View details </a>
-        <form action="/tools/{{this._id}}/addToCart" method="get">
+        <a href="/tools/{{tool._id}}" id="tool-link" class="btn btn-dark-blue">View details </a>
+        {{#unless isHome}}
+        <form action="/tools/{{tool._id}}/addToCart" method="get">
             <button class="add-to-cart btn btn-turquoise">Add To Cart <i class="fa-solid fa-cart-plus"></i></button>
         </form>
+        {{/unless}}
     </div>
 </div>

@@ -46,12 +46,17 @@ h3 {
     font-size: 1.5em;
 }
 
+.text-center {
+    text-align: center;
+}
+
 /* Sizing */
 .container {
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1em;
 }
 
 .col-30 {
@@ -66,11 +71,25 @@ h3 {
     width: 100%;
 }
 
-/* Margins */
+/* Margins & spacing */
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
 }
+
+.row-gap-1 {
+    row-gap: 1em;
+}
+
+.col-gap-1 {
+    column-gap: 1em;
+}
+
+.gap-1 {
+    gap: 1em;
+}
+
+
 
 /******** Display ********/
 .d-none {

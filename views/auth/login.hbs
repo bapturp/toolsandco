@@ -1,21 +1,12 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST" class="form-control">
-
-    <label>
-      Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label>
-      Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Log In</button>
-
+<section id="login-form" class="auth-form">
+  <form action="/auth/login" method="POST" class="form-control d-flex flex-column justify-center align-items-center">
+    <h2>Log In</h2>
+    <input type="email" name="email" placeholder="Your email" />
+    <input type="password" name="password" placeholder="Your password" />
+    <button type="submit" class="btn btn-turquoise">Log In</button>
     {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}}
+    <p>Don't have an account yet? <a href="/auth/signup">Sign up</a></p>
   </form>
-</div>
+</section>

@@ -23,8 +23,6 @@ router.get("/", exposeUserInfo, async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-
-
 });
 
 module.exports = router;

@@ -26,19 +26,45 @@
     </form>
 </section>
 <section class="activities">
-    <article>ac1</article>
-    <article>ac2</article>
-    <article>a3</article>
+    <article id="push-1"></article>
+    <article id="push-2"></article>
+    <article id="push-3"></article>
 </section>
 <section class="trending">
     <div class="container justify-between">
         <h2>Latest tools</h2>
         <a href="/search">See all tools</a>
     </div>
-
     <section class="results-list">
         {{#each toolsList}}
-        {{> toolCard}}
+        {{> toolCard tool=this isHome="true"}}
         {{/each}}
     </section>
+</section>
+<section class="reassurance container">
+    <article>
+        <img src="https://res.cloudinary.com/drbhvpnpr/image/upload/v1668692605/payment-secure_cibnyj.svg" alt="">
+        <h4>Secure payment</h4>
+    </article>
+    <article>
+        <img src="https://res.cloudinary.com/drbhvpnpr/image/upload/v1668692605/tool-quality_gijyxj.svg" alt="">
+        <h4>Top quality tools</h4>
+    </article>
+    <article>
+        <img src="https://res.cloudinary.com/drbhvpnpr/image/upload/v1668692605/click-collect_orpj5w.svg" alt="">
+        <h4>Click & Collect</h4>
+    </article>
+</section>
+<section class="about">
+    <div class="illu">
+        <div id="darkbluebox"></div>
+        <img src="https://res.cloudinary.com/drbhvpnpr/image/upload/v1668693925/about_kw7xel.jpg" alt="">
+        <div id="turquoisebox"></div>
+    </div>
+    <div class="about-text">
+        <h3>About us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad libero, deserunt, ratione explicabo rerum
+            consequuntur ipsum perferendis id natus pariatur exercitationem blanditiis hic, molestias eum rem. Ab
+            adipisci harum illo.</p>
+    </div>
 </section>

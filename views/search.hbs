@@ -42,7 +42,7 @@
 <section class="results-list">
     {{#if toolsList}}
     {{#each toolsList}}
-    {{> toolCard}}
+    {{> toolCard tool=this}}
     {{/each}}
     {{else}}
     No results
