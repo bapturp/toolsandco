@@ -1,13 +1,40 @@
 <section id="login-form" class="auth-form">
-  <form action="/auth/login" method="POST" class="form-control d-flex flex-column justify-center align-items-center">
+  <form
+    action="/auth/login"
+    method="POST"
+    class="form-control d-flex flex-column justify-center align-items-center"
+  >
     <h2>Log In</h2>
     <input type="email" name="email" placeholder="Your email" />
     <input type="password" name="password" placeholder="Your password" />
     <button type="submit" class="btn btn-turquoise">Log In</button>
 
     {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
+      <p class="error">{{errorMessage}}</p>
     {{/if}}
     <p>Don't have an account yet? <a href="/auth/signup">Sign up</a></p>
   </form>
+</section>
+
+<section id="demo-creds">
+  <div>
+    <h4>Don't want to create an account?</h4>
+    <table>
+      <tr>
+        <th>email</th>
+        <th>password</th>
+        <th>role</th>
+      </tr>
+      <tr>
+        <td>alice@example.com</td>
+        <td>1234</td>
+        <td>user</td>
+      </tr>
+      <tr>
+        <td>charlie@example.com</td>
+        <td>1234</td>
+        <td>admin</td>
+      </tr>
+    </table>
+  </div>
 </section>
