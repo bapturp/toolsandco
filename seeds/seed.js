@@ -1,3 +1,4 @@
+require("dotenv").config();
 require("../db/index");
 const Tool = require("../models/Tool.model");
 const tools = require("./tools.json");

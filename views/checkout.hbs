@@ -1,0 +1,85 @@
+<div id="container-checkout">
+
+  <form action="/checkout" method="post" class="form-control">
+
+    <div id="order-summary" class="ck-box">
+      <h2>Order summary</h2>
+      {{#each reservedTools}}
+        <div class="checkout-tool">
+          <div class="checkout-tool-description">
+            <h3>{{this.brand}}</h3>
+            <h4>{{this.model}}</h4>
+            <p>{{this.start_date}} - {{this.end_date}}</p>
+          </div>
+          <div class="checkout-tool-price">
+            <p>{{this.duration}}</p>
+            <p>{{this.price}}</p>
+          </div>
+        </div>
+      {{/each}}
+      <div class="total">
+        {{totalPrice}}
+      </div>
+    </div>
+
+    <div id="billing-info" class="ck-box">
+      <h2>Biling info</h2>
+      <input
+        type="text"
+        name="address-1"
+        id="address-1"
+        placeholder="Address 1"
+      />
+      <input
+        type="text"
+        name="address-2"
+        id="address-2"
+        placeholder="Address 2"
+      />
+      <input type="text" name="zip-code" id="zip-code" placeholder="75011" />
+      <input type="text" name="town" id="town" placeholder="Paris" />
+      <input type="text" name="phone" id="phone" placeholder="06 12 34 31 75" />
+    </div>
+
+    <div id="click-collect" class="ck-box">
+      <h2>Click &amp; collect</h2>
+      <p>Collect your tool directly from our workshop! We are open Monday to
+        Sunday 9:00 to 19:00.</p>
+    </div>
+
+    <div id="payment" class="ck-box">
+      <h2>Payment info</h2>
+      <div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cardholdername">Card holder name:</label>
+          <input
+            type="text"
+            name="cardholdername"
+            id="cardholdername"
+            placeholder="Ada Lovelace"
+          />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cardnumber">Card number:</label>
+          <input
+            type="text"
+            name="cardnumber"
+            id="cardnumber"
+            placeholder="1111-2222-3333-4444"
+          />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="expdate">Expiration date:</label>
+          <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cvv">CVV:</label>
+          <input type="text" name="cvv" id="cvv" placeholder="352" />
+        </div>
+      </div>
+    </div>
+    <div id="place-order">
+      <button class="btn btn-turquoise">Place order</button>
+    </div>
+  </form>
+</div>

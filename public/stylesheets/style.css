@@ -1,5 +1,5 @@
 /* ********************** Utils ********************** */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap");
 
 /* Reset */
 * {
@@ -43,12 +43,12 @@ select option {
 }
 
 :root {
-  --dark-blue: #29339B;
+  --dark-blue: #29339b;
   --dark-blue-transp: rgba(41, 51, 155, 0.8);
-  --turquoise: #31CCD1;
+  --turquoise: #31ccd1;
   --turquoise-transp: rgba(49, 204, 209, 0.58);
   --white: #fff;
-  --inconsolata: 'Inconsolata', monospace;
+  --inconsolata: "Inconsolata", monospace;
 }
 
 body {
@@ -59,7 +59,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.wrapper> :first-child {
+.wrapper > :first-child {
   padding-top: 100px;
 }
 
@@ -71,7 +71,12 @@ body {
 #home-top {
   min-height: 90vh;
   width: 100%;
-  background: linear-gradient(90deg, var(--dark-blue-transp) 0, var(--dark-blue-transp) 100%), url(/images/tools-bg-home.png);
+  background: linear-gradient(
+      90deg,
+      var(--dark-blue-transp) 0,
+      var(--dark-blue-transp) 100%
+    ),
+    url(/images/tools-bg-home.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -89,7 +94,7 @@ body {
 #home-top #whats-the-plan {
   width: 100%;
   font-size: 2em;
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
   color: var(--white);
   text-align: center;
 }
@@ -140,9 +145,8 @@ body {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 1;
-  background: rgb(255, 64, 0)
+  background: rgb(255, 64, 0);
 }
-
 
 /* ********************** Search page ********************** */
 .search-bar {
@@ -161,7 +165,7 @@ body {
 .search-bar #search-form select {
   border: none;
   border-radius: 30px;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
 }
 
 .search-bar .calendar {
@@ -170,12 +174,12 @@ body {
 
 .search-bar #search-form #start_date {
   border-radius: 30px 0 0 30px;
-  border-right: 1px solid var(--turquoise)
+  border-right: 1px solid var(--turquoise);
 }
 
 .search-bar #search-form #end_date {
   border-radius: 0 30px 30px 0;
-  border-left: 1px solid var(--turquoise)
+  border-left: 1px solid var(--turquoise);
 }
 
 .results-list {
@@ -205,7 +209,7 @@ body {
 
 .card:hover {
   border: 2px solid var(--dark-blue);
-  transition: .8s;
+  transition: 0.8s;
 }
 
 .card picture {
@@ -238,7 +242,7 @@ body {
   top: 1em;
   font-size: 1em;
   background: var(--turquoise);
-  padding: .5em 1.5em;
+  padding: 0.5em 1.5em;
   border-radius: 30px;
   color: white;
 }
@@ -255,13 +259,12 @@ body {
   height: 100%;
   background: var(--dark-blue-transp);
   transform: translateY(100%);
-  transition: transform .5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .card:hover .overlayer {
-  transform: translateY(0)
+  transform: translateY(0);
 }
-
 
 /* ********************** Header ********************** */
 header {
@@ -324,7 +327,7 @@ header .nav-buttons {
   right: 0;
   min-width: 160px;
   border-radius: 5px;
-  margin-top: .5em;
+  margin-top: 0.5em;
   overflow: hidden;
 }
 
@@ -339,19 +342,18 @@ header .nav-buttons {
 #profile-dropdown a {
   display: inline-block;
   font-size: 20px;
-  padding: .5em;
-  transition: .3s;
+  padding: 0.5em;
+  transition: 0.3s;
 }
 
 #profile-dropdown a:hover {
-  background: var(--dark-blue)
+  background: var(--dark-blue);
 }
 
 #profile-dropdown a {
   width: 100%;
   height: 100%;
 }
-
 
 #profile-menu .icon {
   height: 43px;
@@ -362,7 +364,7 @@ header .nav-buttons {
   align-items: center;
   color: var(--dark-blue);
   border-radius: 50%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 #profile-menu:hover .icon {
@@ -373,7 +375,7 @@ header .nav-buttons {
 #btn-profile {
   display: flex;
   align-items: center;
-  gap: .2em;
+  gap: 0.2em;
   cursor: pointer;
 }
 
@@ -389,8 +391,8 @@ header .nav-buttons {
 #cart-quantity {
   position: absolute;
   right: 1.5em;
-  top: .2em;
-  padding: .3em;
+  top: 0.2em;
+  padding: 0.3em;
   min-height: 15px;
   border-radius: 50%;
   aspect-ratio: 1;
@@ -401,6 +403,57 @@ header .nav-buttons {
   background: rgb(255, 64, 0);
   border: 1px solid white;
   font-weight: 900;
+}
+
+/* Checkout */
+#container-checkout {
+  display: flex;
+  justify-content: center;
+}
+
+#container-checkout > form {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.ck-box {
+  border: 2px solid var(--turquoise);
+  width: 100%;
+  padding: 1rem;
+}
+
+#payment > div {
+  display: flex;
+  flex-direction: column;
+  /* padding: 1rem; */
+}
+
+#container-checkout h2 {
+  color: var(--dark-blue);
+  font-family: var(--inconsolata);
+  font-size: 2em;
+  margin-bottom: 2rem;
+}
+
+.payment-info {
+  max-width: 380px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#place-order {
+  display: flex;
+  justify-content: center; /* main axis*/
+}
+
+#place-order button {
+  width: 300px;
+  max-width: 100%;
 }
 
 /* ********************** Footer ********************** */
@@ -418,4 +471,130 @@ footer {
 footer * {
   color: white;
   text-decoration: none;
+}
+
+/* ********************** Credentials change ********************** */
+.credential {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2rem;
+  width: 50%;
+}
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#btn-credential {
+  margin: 2rem;
+}
+.error {
+  color: red;
+}
+
+/* ********************** Tool details ********************** */
+
+.tool-details {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tool-detail-img-container {
+  width: 50%;
+  border: 2px solid var(--turquoise);
+  border-radius: 5rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  overflow: hidden;
+}
+.tool-detail-img {
+  width: 100rem;
+}
+
+.tool-titles {
+  margin: 5rem;
+  width: 50%;
+}
+
+.tool-characteristics {
+  margin-top: 5rem;
+}
+
+.tool-characteristics p {
+  font-size: 1.2rem;
+}
+
+.tool-characteristics span {
+  font-size: 1.3rem;
+}
+
+.tool-description {
+  margin: 2rem 0;
+  width: 50%;
+}
+
+.tool-price {
+  margin: 2rem 0;
+}
+
+.tool-tags {
+  margin-bottom: 2rem;
+}
+
+.tool-tags p,
+.tool-tags span {
+  font-size: 0.7rem;
+}
+
+/* ********************** Profile page ********************** */
+
+.profile-container {
+  margin: 0 2rem;
+}
+.profile-container section {
+  margin: 2rem 0;
+}
+.profile-infos-bloc {
+  display: flex;
+  justify-content: flex-start;
+}
+.profile-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 10rem;
+  border-bottom: 3px solid #31ccd1;
+  padding-bottom: 2rem;
+}
+
+.profile-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profile-credentials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.profile-infos span {
+  font-size: 1.3rem;
+}
+
+.profile-infos p {
+  font-size: 1.2rem;
+}
+
+.profile-container a {
+  font-size: 1.5rem;
+}
+.profile-container a:hover {
+  color: var(--turquoise);
 }

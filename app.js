@@ -32,6 +32,8 @@ app.use((req, res, next) => {
     req.session.cart = [];
     res.locals.cart = req.session.cart.length;
   }
+  res.locals.cart = req.session.cart.length;
+
   if (!req.session.date) {
     req.session.date = { start: null, end: null };
   }
@@ -39,6 +41,7 @@ app.use((req, res, next) => {
   res.locals.cart = req.session.cart.length;
   next();
 });
+
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
@@ -46,6 +49,9 @@ app.use("/auth", authRoutes);
 
 const adminRoutes = require("./routes/admin.routes");
 app.use("/admin", adminRoutes);
+
+const checkoutRoutes = require('./routes/checkout.routes');
+app.use('/checkout', checkoutRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
