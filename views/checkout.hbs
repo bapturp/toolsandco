@@ -48,22 +48,38 @@
     </div>
 
     <div id="payment" class="ck-box">
-      <h2>Payment</h2>
-      <input
-        type="text"
-        name="cardname"
-        id="cardname"
-        placeholder="Ada Lovelace"
-      />
-      <input
-        type="text"
-        name="cardnumber"
-        id="cardnumber"
-        placeholder="1111-2222-3333-4444"
-      />
-      <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
-      <input type="text" name="cvv" id="cvv" placeholder="352" />
+      <h2>Payment info</h2>
+      <div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cardholdername">Card holder name:</label>
+          <input
+            type="text"
+            name="cardholdername"
+            id="cardholdername"
+            placeholder="Ada Lovelace"
+          />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cardnumber">Card number:</label>
+          <input
+            type="text"
+            name="cardnumber"
+            id="cardnumber"
+            placeholder="1111-2222-3333-4444"
+          />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="expdate">Expiration date:</label>
+          <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
+        </div>
+        <div class="payment-info w-100 d-flex">
+          <label for="cvv">CVV:</label>
+          <input type="text" name="cvv" id="cvv" placeholder="352" />
+        </div>
+      </div>
     </div>
-    <button class="btn btn-turquoise" id="place-order">Place order</button>
+    <div id="place-order">
+      <button class="btn btn-turquoise">Place order</button>
+    </div>
   </form>
 </div>
