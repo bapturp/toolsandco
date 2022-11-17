@@ -41,6 +41,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/change", async (req, res, next) => {
+  res.locals.previousUrl = req.session.previousUrl;
   res.render("change-credentials");
 });
 

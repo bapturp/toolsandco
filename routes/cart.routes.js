@@ -5,6 +5,8 @@ const Tool = require("./../models/Tool.model");
 // Render all the tools stocked inside the cart
 router.get("/", async (req, res, next) => {
   try {
+    // Stock the previous URL the user is comming from
+    res.locals.previousUrl = req.session.previousUrl;
     // Check if the cart is not empty
     if (req.session.cart.length !== 0) {
       const startDate = new Date(req.session.date.start);

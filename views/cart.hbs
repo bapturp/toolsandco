@@ -1,35 +1,52 @@
-<h1>Cart</h1>
+<div class="container block">
+  <h1>Cart</h1>
 
-{{#if cart}}
-  <a href="/cart/clear">Clear cart</a>
-
-  <a href="/checkout">Finalize !</a>
-  <h2>Total: {{totalPrice}} €</h2>
-  {{#each reservedTools}}
-    <div class="card">
-      <div>
-        <h2>{{this.model}}</h2>
-        <h3>{{this.brand}}</h3>
-        <picture>
-          <img
-            class="tool-image"
-            src="{{this.picture_url}}"
-            alt="{{this.model}}"
-          />
-        </picture>
-        <p><span>Description: </span>{{this.description}}</p>
-        <p><span>Price: </span>{{this.price_per_day}}€/day</p>
-        <a href="/tools/{{this._id}}" id="tool-link">View details </a>
-        <a href="/cart/clear-item/{{this._id}}">Remove from cart</a>
-        <p>
-          <span>tags: </span>
-          {{#each this.use_case}}
-            <span class="use-case">{{this.name}}</span>
-          {{/each}}
-        </p>
+  {{#if cart}}
+    <div class="card-container">
+      <div class="cart-buttons">
+        <a href="/cart/clear"><button class="btn btn-turquoise">Clear Cart</button></a>
+        <a href="/checkout"><button class="btn btn-turquoise">Checkout</button>
+        </a>
+        <a href="{{previousUrl}}"><button
+            class="btn btn-turquoise back"
+          >Back</button></a>
       </div>
     </div>
-  {{/each}}
-{{else}}
-  <h2>Your cart is empty 😢</h2>
-{{/if}}
+    <h2>Total: {{totalPrice}} €</h2>
+    <div class="dates">
+      <span>From: </span>
+      <span class="trim-cart-date">{{date.start}}</span>
+      <span>To: </span>
+      <span class="trim-cart-date">{{date.end}}</span>
+    </div>
+
+    <div class="cart-list">
+      {{#each reservedTools}}
+        <div class="cart-item">
+          <h2>{{this.model}}</h2>
+          <h3>{{this.brand}}</h3>
+          <picture>
+            <img
+              class="tool-image"
+              src="{{this.picture_url}}"
+              alt="{{this.model}}"
+            />
+          </picture>
+          <p><span>Price: </span>{{this.price_per_day}}€/day</p>
+          <a href="/tools/{{this._id}}" id="tool-link">View details </a>
+          <a href="/cart/clear-item/{{this._id}}">Remove from cart</a>
+          <p>
+            <span>tags: </span>
+            {{#each this.use_case}}
+              <span class="use-case">{{this.name}}</span>
+            {{/each}}
+          </p>
+
+        </div>
+      {{/each}}
+    </div>
+
+  {{else}}
+    <h2>Your cart is empty 😢</h2>
+  {{/if}}
+</div>

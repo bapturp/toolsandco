@@ -19,11 +19,6 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-const capitalize = require("./utils/capitalize");
-const projectName = "app";
-
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
-
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 // Set up of cart and date inside req.session
@@ -37,6 +32,7 @@ app.use((req, res, next) => {
   if (!req.session.date) {
     req.session.date = { start: null, end: null };
   }
+
   res.locals.date = req.session.date;
   res.locals.cart = req.session.cart.length;
   next();
@@ -50,8 +46,8 @@ app.use("/auth", authRoutes);
 const adminRoutes = require("./routes/admin.routes");
 app.use("/admin", adminRoutes);
 
-const checkoutRoutes = require('./routes/checkout.routes');
-app.use('/checkout', checkoutRoutes);
+const checkoutRoutes = require("./routes/checkout.routes");
+app.use("/checkout", checkoutRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
