@@ -11,6 +11,13 @@ router.get("/", async (req, res, next) => {
     const queriedTools = {};
     const excludedTools = [];
     const query = req.query;
+    const search = {
+      tool_type: req.query.tool_type,
+      use_case: req.query.use_case,
+      start_date: req.query.start_date,
+      end_date: req.query.end_date
+    }
+    console.log(search)
     if (query.tool_type) {
       const toolTypeId = await Tooltype.findOne({ name: query.tool_type });
       queriedTools.tool_type = toolTypeId;
@@ -29,8 +36,6 @@ router.get("/", async (req, res, next) => {
       };
 
       res.locals.date = req.session.date;
-
-      console.log(req.session.date);
       // Exclure les outils avec une réservation existante sur tout ou partie de la période sélectionnée
       const allResas = await Reservation.find({
         $or: [
@@ -72,10 +77,10 @@ router.get("/", async (req, res, next) => {
       ]);
     }
 
-    const tooltypesList = await Tooltype.find();
-    const usecasesList = await Usecase.find();
+    const tooltypesList = await Tooltype.find({ name: { $nin: [search.tool_type] } });
+    const usecasesList = await Usecase.find({ name: { $nin: [search.use_case] } });
 
-    res.render("search", { toolsList, tooltypesList, usecasesList });
+    res.render("search", { toolsList, tooltypesList, usecasesList, search });
   } catch (error) {
     return next(error);
   }
