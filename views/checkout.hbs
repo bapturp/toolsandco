@@ -1,0 +1,69 @@
+<div id="container-checkout">
+
+  <form action="/checkout" method="post" class="form-control">
+
+    <div id="order-summary" class="ck-box">
+      <h2>Order summary</h2>
+      {{#each reservedTools}}
+        <div class="checkout-tool">
+          <div class="checkout-tool-description">
+            <h3>{{this.brand}}</h3>
+            <h4>{{this.model}}</h4>
+            <p>{{this.start_date}} - {{this.end_date}}</p>
+          </div>
+          <div class="checkout-tool-price">
+            <p>{{this.duration}}</p>
+            <p>{{this.price}}</p>
+          </div>
+        </div>
+      {{/each}}
+      <div class="total">
+        {{totalPrice}}
+      </div>
+    </div>
+
+    <div id="billing-info" class="ck-box">
+      <h2>Biling info</h2>
+      <input
+        type="text"
+        name="address-1"
+        id="address-1"
+        placeholder="Address 1"
+      />
+      <input
+        type="text"
+        name="address-2"
+        id="address-2"
+        placeholder="Address 2"
+      />
+      <input type="text" name="zip-code" id="zip-code" placeholder="75011" />
+      <input type="text" name="town" id="town" placeholder="Paris" />
+      <input type="text" name="phone" id="phone" placeholder="06 12 34 31 75" />
+    </div>
+
+    <div id="click-collect" class="ck-box">
+      <h2>Click &amp; collect</h2>
+      <p>Collect your tool directly from our workshop! We are open Monday to
+        Sunday 9:00 to 19:00.</p>
+    </div>
+
+    <div id="payment" class="ck-box">
+      <h2>Payment</h2>
+      <input
+        type="text"
+        name="cardname"
+        id="cardname"
+        placeholder="Ada Lovelace"
+      />
+      <input
+        type="text"
+        name="cardnumber"
+        id="cardnumber"
+        placeholder="1111-2222-3333-4444"
+      />
+      <input type="text" name="expdate" id="expdate" placeholder="MMYY" />
+      <input type="text" name="cvv" id="cvv" placeholder="352" />
+    </div>
+    <button class="btn btn-turquoise" id="place-order">Place order</button>
+  </form>
+</div>

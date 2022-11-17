@@ -8,20 +8,29 @@ router.get("/", async (req, res, next) => {
   try {
     const userId = res.locals.currentUser._id;
     const currentDate = new Date();
-    const reservations = await Reservation.find({ user: userId }).populate(
-      "tool"
-    );
+    const reservations = await Reservation.find({ user: userId })
+      .populate("tool")
+      .populate({
+        path: "tool",
+        populate: {
+          path: "tool_type",
+          model: "Tooltype",
+        },
+      });
     // Stocking current and passed reservations in differents arrays
     const passedReservations = [];
     const currentReservations = [];
+
     reservations.forEach((reservation) => {
-      console.log(currentDate <= reservation.end_date);
-      if (currentDate <= reservation.end_date) {
+      const reservationEndDate = reservation.end_date;
+
+      if (currentDate <= reservationEndDate) {
         currentReservations.push(reservation);
       } else {
         passedReservations.push(reservation);
       }
     });
+
     res.render("profile", {
       passedReservations,
       currentReservations,
@@ -32,7 +41,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/change", async (req, res, next) => {
-  res.render("changeCredentials");
+  res.render("change-credentials");
 });
 
 router.post("/change", async (req, res, next) => {
@@ -50,26 +59,42 @@ router.post("/change", async (req, res, next) => {
 
     if (!username) {
       username = res.locals.currentUser.username;
+    } else {
+      username = req.body.username;
     }
     if (!email) {
       email = res.locals.currentUser.email;
+    } else {
+      email = req.body.email;
     }
+
     if (!newPassword) {
-      newPassword = res.locals.currentUser["new-password"];
-      oldPassword = res.locals.currentUser["new-password"];
+      newPassword = actualPassword;
+      oldPassword = actualPassword;
+      res.locals.currentUser.username = username;
+      res.locals.currentUser.email = email;
+
+      const modifiedUser = await User.findByIdAndUpdate(userId, {
+        username,
+        email,
+        newPassword,
+      });
+      return res.redirect("/profile");
     }
 
     if (newPassword) {
+      res.locals.currentUser.username = username;
+      res.locals.currentUser.email = email;
       const hashedNewPassword = await bcrypt.hash(newPassword, 10);
       if (newPassword.length < 6) {
-        return res.status(400).render("changeCredentials", {
+        return res.status(400).render("change-credentials", {
           shortPasswordError:
             "Your password needs to be at least 6 characters long.",
         });
       }
       if (!(await bcrypt.compare(oldPassword, actualPassword))) {
         res.locals.badPassword = true;
-        return res.status(400).render("changeCredentials", {
+        return res.status(400).render("change-credentials", {
           errorMessage: "Wrong password.",
         });
       } else {
@@ -79,13 +104,11 @@ router.post("/change", async (req, res, next) => {
           email,
           password: hashedNewPassword,
         });
-        res.render("profile", {
-          savedChanges: "Saved Changes !",
-        });
+        return res.redirect("/profile");
       }
     } else {
       const modifiedUser = await User.findByIdAndUpdate(userId, {});
-      res.status(400).render("changeCredentials", {
+      return res.status(400).render("change-credentials", {
         noChanges: "Error.",
       });
     }
