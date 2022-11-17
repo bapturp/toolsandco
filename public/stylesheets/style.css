@@ -432,3 +432,60 @@ footer * {
 #btn-credential {
   margin: 2rem;
 }
+.error {
+  color: red;
+}
+
+/* ********************** Tool detail ********************** */
+
+.tool-details {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tool-detail-img-container {
+  width: 50%;
+  border: 2px solid var(--turquoise);
+  border-radius: 5rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  overflow: hidden;
+}
+.tool-detail-img {
+  width: 100rem;
+}
+
+.tool-titles {
+  margin: 5rem;
+  width: 50%;
+}
+
+.tool-characteristics {
+  margin-top: 5rem;
+}
+
+.tool-characteristics p {
+  font-size: 1.2rem;
+}
+
+.tool-characteristics span {
+  font-size: 1.3rem;
+}
+
+.tool-description {
+  margin: 2rem 0;
+  width: 50%;
+}
+
+.tool-price {
+  margin: 2rem 0;
+}
+
+.tool-tags {
+  margin-bottom: 2rem;
+}
+
+.tool-tags p,
+.tool-tags span {
+  font-size: 0.7rem;
+}

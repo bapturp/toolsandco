@@ -1,19 +1,35 @@
-<div class="card">
-  <div>
+<div class="tool-details">
+  <picture class="tool-detail-img-container">
+    <img
+      class="tool-detail-img"
+      src="{{tool.picture_url}}"
+      alt="{{tool.model}}"
+    />
+  </picture>
+  <div class="tool-titles">
     <h2>{{tool.model}}</h2>
     <h3>{{tool.brand}}</h3>
-    <picture>
-      <img class="tool-image" src="{{tool.picture_url}}" alt="{{tool.model}}" />
-    </picture>
-    <p><span>Description: </span>{{tool.description}}</p>
-    <p><span>Price: </span>{{tool.price_per_day}}€/day</p>
-    <a href="/tools/{{tool._id}}" id="tool-link">View details </a>
-    <p>
-      <span>tags: </span>
-      {{#each tool.use_case}}
-        <span class="use-case">{{this.name}}</span>
-      {{/each}}
-    </p>
-    <a href="/reservation/{{tool._id}}">Reserve</a>
+    <div class="tool-characteristics">
+      <div class="tool-description">
+        <p><span>Description: </span>{{tool.description}}</p>
+      </div>
+      <div class="tool-price">
+        <p><span>Price: </span>{{tool.price_per_day}}€/day</p>
+      </div>
+      <div class="tool-tags">
+        <p>
+          <span>tags: </span>
+          {{#each tool.use_case}}
+            {{this.name}}
+          {{/each}}
+        </p>
+      </div>
+
+      <form action="/tools/{{tool._id}}/addToCart" method="get">
+        <button class="btn btn-turquoise add-to-cart">Add To Cart</button>
+      </form>
+    </div>
+
   </div>
+
 </div>
