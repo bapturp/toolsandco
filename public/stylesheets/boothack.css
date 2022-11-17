@@ -50,6 +50,8 @@ h3 {
 .container {
     display: flex;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .col-30 {
@@ -96,6 +98,10 @@ h3 {
     flex-wrap: wrap;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
 /******** Forms ********/
 .form-control input,
 .form-control select,
@@ -109,10 +115,15 @@ h3 {
 
 /******** Tables ********/
 
+table,
+td,
+th {
+    border-collapse: collapse;
+}
 
 .table-control {
     width: 100%;
-    border: none;
+    border: 2px solid var(--turquoise);
 }
 
 .table-control tr:first-child {
@@ -130,11 +141,8 @@ h3 {
     background-color: #eee;
 }
 
+.table-control td,
 .table-control th {
-    padding: .5em .2em;
-    text-align: center;
-}
-
-.table-control td {
-    padding: .2em;
+    text-align: left;
+    padding: .6em .4em;
 }

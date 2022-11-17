@@ -77,3 +77,47 @@ main h1 {
 .create-tool-form .col-50 {
     padding: 1em;
 }
+
+.table-desc {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-model {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 150px;
+}
+
+.table-tool-tags span {
+    background: var(--turquoise);
+    padding: .5em;
+    border-radius: 30px;
+    color: white;
+    font-size: .9em;
+    margin: .3em;
+}
+
+.tool-edit-delete-buttons {
+    display: flex;
+    gap: 1em;
+}
+
+.tool-edit-delete-buttons i {
+    color: var(--dark-blue);
+    font-size: 1.5em;
+    transition: .5s;
+}
+
+.tool-edit-delete-buttons i:hover {
+    color: var(--turquoise);
+}
