@@ -1,23 +1,43 @@
 {{> adminHeader}}
-<main>
+<main class="tags-manager">
     <section id="tooltypes">
-        <h2>Tool types</h2>
-        {{#each tooltypes}}
-        <span>{{this.name}}</span>
-        {{/each}}
-        <form action="/admin/tools/tooltypes/create" method="post">
-            <input type="text" name="name" placeholder="New tool type name">
-            <button>Add tool type</button>
-        </form>
+        <div>
+            <h2>Tool types</h2>
+            <h3>Existing tools types</h3>
+            <div class="tooltypes-list">
+                {{#each tooltypes}}
+                <div>{{this.name}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div>
+            <h3>New tool type</h3>
+            <form action="/admin/tools/tooltypes/create" method="post" class="form-control">
+                <input type="text" name="name" placeholder="New tool type name" required>
+                <button class="btn btn-turquoise"><i class="fa-solid fa-plus"></i></button>
+            </form>
+        </div>
+
+
+
     </section>
     <section id="usecases">
-        <h2>Use cases</h2>
-        {{#each usecases}}
-        <span>{{this.name}}</span>
-        {{/each}}
-        <form action="/admin/tools/usecases/create" method="post">
-            <input type="text" name="name" placeholder="New use case name">
-            <button>Add use case</button>
-        </form>
+        <div>
+            <h2>Use cases</h2>
+            <h3>Existing use cases</h3>
+            <div class="usecases-list">
+                {{#each usecases}}
+                <div>{{this.name}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div>
+            <h3>New use case</h3>
+            <form action="/admin/tools/usecases/create" method="post" class="form-control">
+                <input type="text" name="name" placeholder="New use case name" required>
+                <button class="btn btn-turquoise"><i class="fa-solid fa-plus"></i></button>
+            </form>
+        </div>
+
     </section>
 </main>

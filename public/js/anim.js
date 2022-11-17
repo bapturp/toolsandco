@@ -31,3 +31,26 @@ function typeWriter() {
         }, 250);
     }
 }
+
+
+// About section animation
+const darkBox = document.querySelector('#darkbluebox')
+const turquoiseBox = document.querySelector('#turquoisebox')
+if (darkBox) {
+    window.addEventListener('scroll', () => {
+        var element = document.querySelector('.about');
+        var position = element.getBoundingClientRect();
+
+        // checking whether fully visible
+        if (position.top >= 0 && position.bottom <= window.innerHeight) {
+            darkBox.classList.add('arrived')
+        }
+
+        // checking for partial visibility
+        if (position.top < window.innerHeight && position.bottom >= 0) {
+            darkBox.classList.remove('arrived')
+        }
+    })
+}
+
+// Fake lazy load on products

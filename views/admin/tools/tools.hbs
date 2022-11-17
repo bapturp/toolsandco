@@ -2,12 +2,10 @@
 <main>
     <h1>All tools</h1>
     <section class="tools-buttons">
-        <div> <span id="add-tool-btn" class="btn btn-turquoise">Add new tool type <i
+        <div> <span id="add-tool-btn" class="btn btn-turquoise">Add new tool<i
                     class="fa-solid fa-circle-plus"></i></span></div>
-        <div class="tool-tags">
-            <a href="/admin/tools/tool-tags" class="btn btn-dark-blue">Manage tool types <i
-                    class="fa-solid fa-plus"></i></a>
-            <a href="/admin/tools/tool-tags#usecases" class="btn btn-dark-blue">Manage use cases <i
+        <div class="tool-tags-btn">
+            <a href="/admin/tools/tool-tags" class="btn btn-dark-blue">Manage tool types & use cases <i
                     class="fa-solid fa-plus"></i></a>
         </div>
     </section>
@@ -16,15 +14,16 @@
             <form action="/admin/tools/create" method="post" enctype="multipart/form-data"
                 class="form-control container create-tool-form">
                 <div class="col-50 d-flex flex-column">
-                    <input type="text" name="brand" placeholder="Brand">
-                    <input type="text" name="model" placeholder="Model">
-                    <textarea name="description" cols="30" rows="10"></textarea>
-                    <input type="file" name="picture_url">
+                    <input type="text" name="brand" placeholder="Brand" required>
+                    <input type="text" name="model" placeholder="Model" required>
+                    <textarea name="description" cols="30" rows="10" required></textarea>
+                    <input type="file" name="picture_url" required>
                 </div>
                 <div class="col-50 d-flex flex-column">
-                    <input type="text" name="price_per_day" placeholder="Price per day">
+                    <input type="text" name="price_per_day" placeholder="Price per day" required>
 
-                    <select name="tool_type">
+                    <select name="tool_type" required>
+                        <option value="">-- Select tool type</option>
                         {{#each tooltypes}}
                         <option value="{{this._id}}">{{this.name}}</option>
                         {{/each}}
@@ -36,7 +35,7 @@
                         {{/each}}
                     </div>
                 </div>
-                <div class="col-100">
+                <div class="w-100 text-center">
                     <button class="btn btn-turquoise mx-auto">Add tool to base</button>
                 </div>
 

@@ -8,7 +8,7 @@
   box-sizing: border-box;
   max-width: 100%;
   font-family: var(--inconsolata);
-  font-size: 16px;
+  font-size: 17px;
 }
 
 img {
@@ -25,17 +25,11 @@ button {
   cursor: pointer;
 }
 
-select:focus,
-select:focus-visible {
-  border: none;
-  outline: none;
-}
-
 select * {
   padding: 1em;
 }
 
-select option {
+select option:not(:first-child) {
   background: var(--turquoise);
   color: white;
   font-size: 18px;
@@ -59,7 +53,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.wrapper > :first-child {
+.wrapper> :first-child {
   padding-top: 100px;
 }
 
@@ -71,11 +65,9 @@ body {
 #home-top {
   min-height: 90vh;
   width: 100%;
-  background: linear-gradient(
-      90deg,
+  background: linear-gradient(90deg,
       var(--dark-blue-transp) 0,
-      var(--dark-blue-transp) 100%
-    ),
+      var(--dark-blue-transp) 100%),
     url(/images/tools-bg-home.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -127,6 +119,12 @@ body {
   margin: 0 1em;
 }
 
+.home-search select:focus,
+.home-search select:focus-visible {
+  border: none;
+  outline: none;
+}
+
 .home-search ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
@@ -145,7 +143,101 @@ body {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 1;
-  background: rgb(255, 64, 0);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: linear-gradient(var(--dark-blue-transp), var(--dark-blue-transp));
+  background-size: cover;
+}
+
+article#push-1 {
+  background: linear-gradient(to bottom, #29339b3c, #29339bf1), url(https://res.cloudinary.com/drbhvpnpr/image/upload/v1668690120/woodworking_ru6aue.jpg);
+  background-size: cover;
+}
+
+article#push-2 {
+  background: linear-gradient(to bottom, #29339b3c, #29339bf1), url(https://res.cloudinary.com/drbhvpnpr/image/upload/v1668690120/plumbing_zixwlv.jpg);
+  background-size: cover;
+}
+
+article#push-3 {
+  background: linear-gradient(to bottom, #29339b3c, #29339bf1), url(https://res.cloudinary.com/drbhvpnpr/image/upload/v1668690120/gardening_v83hbj.jpg);
+  background-size: cover;
+}
+
+.reassurance {
+  justify-content: space-around;
+  margin: 4em auto;
+}
+
+.reassurance article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.reassurance h4 {
+  color: var(--turquoise);
+  font-size: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.about {
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+  gap: 5%;
+}
+
+.about>div {
+  width: 50%;
+}
+
+.about .illu {
+  position: relative;
+}
+
+.about .about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.about .about-text h3 {
+  color: var(--dark-blue);
+  font-size: 2em;
+}
+
+.about .illu img {
+  width: 95%;
+  z-index: 2;
+}
+
+.about .illu #darkbluebox {
+  z-index: 1;
+  background: var(--dark-blue);
+  height: 180px;
+  width: 150px;
+  position: absolute;
+  top: -90px;
+  left: 5em;
+  transform: translateX(-200%);
+  transition: 1s ease-out;
+}
+
+.about .illu #darkbluebox.arrived {
+  transform: translateX(100%);
+}
+
+.about .illu #turquoisebox {
+  position: absolute;
+  right: -50px;
+  bottom: -80px;
+  z-index: 3;
+  background: var(--turquoise-transp);
+  height: 200px;
+  width: 200px;
 }
 
 /* ********************** Search page ********************** */
@@ -450,7 +542,7 @@ header .nav-buttons {
   justify-content: center;
 }
 
-#container-checkout > form {
+#container-checkout>form {
   margin: 4rem 0;
   display: flex;
   flex-direction: column;
@@ -465,7 +557,7 @@ header .nav-buttons {
   padding: 1rem;
 }
 
-#payment > div {
+#payment>div {
   display: flex;
   flex-direction: column;
   /* padding: 1rem; */
@@ -487,7 +579,8 @@ header .nav-buttons {
 
 #place-order {
   display: flex;
-  justify-content: center; /* main axis*/
+  justify-content: center;
+  /* main axis*/
 }
 
 #place-order button {
@@ -523,6 +616,7 @@ footer * {
   margin-left: 2rem;
   width: 50%;
 }
+
 .labels {
   display: flex;
   flex-direction: column;
@@ -544,6 +638,7 @@ footer * {
 .profile-page-link button {
   width: 16rem;
 }
+
 .error {
   color: red;
 }
@@ -562,6 +657,7 @@ footer * {
   margin-left: 2rem;
   overflow: hidden;
 }
+
 .tool-detail-img {
   border: 2px solid var(--turquoise);
   border-radius: 5rem;
@@ -614,13 +710,16 @@ footer * {
   display: block;
   margin: 0 2rem;
 }
+
 .profile-container section {
   margin: 2rem 0;
 }
+
 .profile-infos-bloc {
   display: flex;
   justify-content: flex-start;
 }
+
 .profile-infos {
   display: flex;
   flex-direction: column;
@@ -641,6 +740,7 @@ footer * {
   flex-direction: column;
   justify-content: space-around;
 }
+
 .profile-infos span {
   font-size: 1.3rem;
 }
@@ -652,8 +752,41 @@ footer * {
 .profile-container a {
   font-size: 1.5rem;
 }
+
 .profile-container a:hover {
   color: var(--turquoise);
 }
 
+/* ********************** Auth ********************** */
+.auth-form {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form h2 {
+  color: var(--dark-blue);
+  margin-bottom: 1em;
+}
+
+.auth-form p {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.auth-form a {
+  text-decoration: underline;
+}
+
 /* ********************** Cart ********************** */
+
