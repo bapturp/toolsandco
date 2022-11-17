@@ -1,6 +1,6 @@
 <div id="login-form">
   <h2>Log In</h2>
-  <form action="/auth/login" method="POST" class="form-control">
+  <form {{#if prevurl}} action="/auth/login/?prevurl={{prevurl}}" {{else}} action="/auth/login/" {{/if}} method="POST" class="form-control">
 
     <label>
       Email
