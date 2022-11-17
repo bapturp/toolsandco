@@ -72,80 +72,43 @@ router.get("/tools", exposeUserInfo, isLoggedIn, isAdmin, async (req, res) => {
 });
 
 // Create tool
-router.post(
-  "/tools/create",
-  exposeUserInfo,
-  uploader.single("picture_url"),
-  async (req, res, next) => {
-    try {
-      const { brand, model, description, price_per_day, tool_type, use_case } =
-        req.body;
-      await Tool.create({
-        brand,
-        model,
-        picture_url: req.file.path,
-        description,
-        price_per_day,
-        tool_type,
-        use_case,
-      });
-      res.redirect("/admin/tools");
-    } catch (err) {
-      return next(err);
-    }
+router.post("/tools/create", exposeUserInfo, uploader.single('picture_url'), async (req, res, next) => {
+  try {
+    const { brand, model, description, price_per_day, tool_type, ...rest } = req.body
+    const use_case = Object.keys(rest)
+    await Tool.create({ brand, model, picture_url: req.file.path, description, price_per_day, tool_type, use_case })
+    res.redirect("/admin/tools")
+  } catch (err) {
+    return next(err)
   }
-);
+});
 
 // Get edit tool page
-router.get(
-  "/tools/:id/edit",
-  exposeUserInfo,
-  isLoggedIn,
-  isAdmin,
-  async (req, res, next) => {
-    try {
-      const tool = await Tool.findById(req.params.id).populate(
-        "use_case tool_type"
-      );
-      const tooltypes = await Tooltype.find();
-      const usecases = await Usecase.find();
-      return res.render("admin/tools/edit-tool", { tool, tooltypes, usecases });
-    } catch (error) {
-      return next(error);
-    }
+router.get("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, async (req, res, next) => {
+  try {
+    const tool = await Tool.findById(req.params.id).populate('use_case tool_type')
+    const tooltypes = await Tooltype.find()
+
+    const selectedUsecases = tool.use_case.map((usecase) => usecase.name)
+    console.log(selectedUsecases)
+    const usecases = await Usecase.find({ name: { $nin: selectedUsecases } })
+    return res.render('admin/tools/edit-tool', { tool, tooltypes, usecases })
+  } catch (error) {
+    return next(error)
   }
-);
+});
 
 // Save edits
-router.post(
-  "/tools/:id/edit",
-  exposeUserInfo,
-  isLoggedIn,
-  isAdmin,
-  uploader.single("picture_url"),
-  async (req, res, next) => {
-    try {
-      const { brand, model, description, price_per_day, tool_type, use_case } =
-        req.body;
-      await Tool.findByIdAndUpdate(
-        req.params.id,
-        {
-          brand,
-          model,
-          picture_url: req.file.path,
-          description,
-          price_per_day,
-          tool_type,
-          use_case,
-        },
-        { new: true }
-      );
-      res.redirect("/admin/tools");
-    } catch (error) {
-      return next(error);
-    }
+router.post("/tools/:id/edit", exposeUserInfo, isLoggedIn, isAdmin, uploader.single('picture_url'), async (req, res, next) => {
+  try {
+    const { brand, model, description, price_per_day, tool_type, ...rest } = req.body
+    const use_case = Object.keys(rest)
+    await Tool.findByIdAndUpdate(req.params.id, { brand, model, picture_url: req.file?.path, description, price_per_day, tool_type, use_case }, { new: true })
+    res.redirect("/admin/tools")
+  } catch (error) {
+    return next(error)
   }
-);
+});
 
 // Get tool types & use cases
 router.get(

@@ -18,6 +18,11 @@
             <input type="checkbox" name="{{this._id}}" id="{{this.name}}">
             <label for="{{this.name}}">{{this.name}}</label>
             {{/each}}
+            {{#each tool.use_case}}
+            <input type="checkbox" name="{{this._id}}" id="{{this.name}}" checked>
+            <label for="{{this.name}}">{{this.name}}</label>
+            {{/each}}
+
         </div>
 
         <button class="btn btn-turquoise">Save changes</button>

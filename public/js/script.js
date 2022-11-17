@@ -15,24 +15,29 @@ addToCartBtns.forEach((addToCartBtn) => {
 // Handles calendar default dates and forbidden dates
 const startCalendar = document.querySelector("#start_date");
 if (startCalendar) {
-  const endCalendar = document.querySelector("#end_date");
-  var today = new Date().toISOString().split("T")[0];
-  const todayPlusTwo = addDays(Date(), 2).toISOString().split("T")[0];
 
-  startCalendar.setAttribute("min", today);
-  startCalendar.setAttribute("value", today);
-  endCalendar.setAttribute("value", todayPlusTwo);
+  const endCalendar = document.querySelector("#end_date")
+  var today = new Date().toISOString().split('T')[0];
+  const todayPlusTwo = addDays(Date(), 2).toISOString().split('T')[0];
 
-  startCalendar.addEventListener("change", () => {
-    const selectedStartDate = startCalendar.value;
-    const selectedStartDateBla = new Date(selectedStartDate);
-    const inTwoDays = addDays(selectedStartDateBla, 2)
-      .toISOString()
-      .split("T")[0];
-    endCalendar.setAttribute("min", inTwoDays);
-    endCalendar.setAttribute("value", inTwoDays);
-    endCalendar.showPicker();
-  });
+  if (!startCalendar.hasAttribute("value")) {
+    startCalendar.setAttribute('min', today);
+    startCalendar.setAttribute('value', today)
+  }
+
+  if (!endCalendar.hasAttribute("value")) {
+    endCalendar.setAttribute('value', todayPlusTwo)
+  }
+
+  startCalendar.addEventListener('change', () => {
+    const selectedStartDate = startCalendar.value
+    const selectedStartDateBla = new Date(selectedStartDate)
+    const inTwoDays = addDays(selectedStartDateBla, 2).toISOString().split('T')[0];
+    endCalendar.setAttribute('min', inTwoDays)
+    endCalendar.setAttribute('value', inTwoDays)
+    endCalendar.showPicker()
+  })
+
 }
 
 function addDays(date, days) {
@@ -71,40 +76,4 @@ if (trimCartDate) {
     const trimmed = date.textContent;
     date.textContent = trimmed.substring(0, 10);
   });
-}
-
-// Slide in effect on page load for menu
-const nav = document.querySelector(".reg-nav");
-if (nav) {
-  window.addEventListener("load", () => {
-    nav.classList.add("slide-from-top");
-  });
-}
-
-// Type effect of "What's the plan"
-let whatsThePlan = document.getElementById("whats-the-plan");
-if (whatsThePlan) {
-  window.addEventListener("load", () => {
-    typeWriter();
-  });
-}
-
-let i = 0;
-function typeWriter() {
-  let txt = "What's the plan?";
-
-  if (i < txt.length) {
-    whatsThePlan.innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, 30);
-  } else {
-    let counter = 0;
-    const interval = setInterval(() => {
-      whatsThePlan.classList.toggle("d-none");
-      counter++;
-      if (counter > 3) {
-        clearInterval(interval);
-      }
-    }, 200);
-  }
 }
