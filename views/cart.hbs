@@ -7,14 +7,9 @@
         <a href="/cart/clear"><button class="btn btn-turquoise">Clear Cart</button></a>
         <a href="/checkout"><button class="btn btn-turquoise">Checkout</button>
         </a>
-        <form>
-          <input
+        <a href="{{previousUrl}}"><button
             class="btn btn-turquoise back"
-            type="button"
-            value="Go back"
-            onclick="history.back()"
-          />
-        </form>
+          >Back</button></a>
       </div>
     </div>
     <h2>Total: {{totalPrice}} €</h2>

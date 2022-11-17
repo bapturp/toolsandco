@@ -13,14 +13,9 @@
       <form action="/tools/{{tool._id}}/addToCart" method="get">
         <button class="btn btn-turquoise add-to-cart">Add To Cart</button>
       </form>
-      <form>
-        <input
+      <a href="{{previousUrl}}"><button
           class="btn btn-turquoise back"
-          type="button"
-          value="Go back"
-          onclick="history.back()"
-        />
-      </form>
+        >Back</button></a>
     </div>
 
     <div class="tool-characteristics">
