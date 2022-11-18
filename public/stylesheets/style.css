@@ -53,7 +53,7 @@ body {
   scroll-behavior: smooth;
 }
 
-.wrapper > :first-child {
+.wrapper> :first-child {
   padding-top: 100px;
 }
 
@@ -65,11 +65,9 @@ body {
 #home-top {
   min-height: 90vh;
   width: 100%;
-  background: linear-gradient(
-      90deg,
+  background: linear-gradient(90deg,
       var(--dark-blue-transp) 0,
-      var(--dark-blue-transp) 100%
-    ),
+      var(--dark-blue-transp) 100%),
     url(/images/tools-bg-home.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -210,7 +208,7 @@ article#push-3 {
   gap: 5%;
 }
 
-.about > div {
+.about>div {
   width: 50%;
 }
 
@@ -328,8 +326,19 @@ article#push-3 {
   align-items: center;
 }
 
-.cart-buttons {
+.cart-header {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 700px;
+  color: var(--dark-blue);
+  transition: .5s;
+}
+
+.cart-buttons:hover {
+  color: var(--turquoise);
 }
 
 .card {
@@ -337,13 +346,17 @@ article#push-3 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 30%;
   max-width: 300px;
   border: 2px solid var(--turquoise);
   padding: 1em;
   overflow: hidden;
+}
+
+.card .tool-info {
+  width: 100%;
 }
 
 .tool-card {
@@ -359,58 +372,65 @@ article#push-3 {
   font-size: 2rem;
 }
 
+.cart-list .recap {
+  width: 100%;
+  background: var(--turquoise);
+  color: white;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .cart-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  margin: 2rem;
+  width: 100%;
+  margin: .5em auto 2em;
+  max-width: 700px;
+  border: 2px solid var(--turquoise);
 }
 
 .cart-item {
   position: relative;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 30%;
-  max-width: 300px;
-  border: 2px solid var(--turquoise);
+  width: 100%;
+  border-bottom: 1px solid var(--turquoise);
   padding: 1em;
-  margin: 2rem;
+  margin: 0;
   overflow: hidden;
 }
 
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-info {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
 .cart-item a {
-  font-weight: bold;
-}
-
-.cart-item a:hover {
-  color: var(--turquoise);
-  font-weight: bolder;
-}
-
-.card:hover {
-  border: 2px solid var(--dark-blue);
-  transition: 0.8s;
-}
-
-.card picture {
-  display: block;
-  width: 80%;
+  font-size: inherit;
   text-align: center;
-  margin-bottom: 1.5em;
 }
 
-.tool-info {
-  width: 100%;
+.cart-item picture {
+  display: block;
+  width: 80px;
+  text-align: center;
 }
 
 .tool-info h3 {
   color: var(--turquoise);
   font-size: 1.3em;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .tool-info h2 {
@@ -594,7 +614,7 @@ header .nav-buttons {
   justify-content: center;
 }
 
-#container-checkout > form {
+#container-checkout>form {
   margin: 4rem 0;
   display: flex;
   flex-direction: column;
@@ -609,7 +629,31 @@ header .nav-buttons {
   padding: 1rem;
 }
 
-#payment > div {
+#container-checkout .tool-info {
+  padding: 1em 0;
+}
+
+#container-checkout .recap {
+  text-align: center;
+  padding: 1em;
+  font-weight: 900;
+  color: var(--dark-blue);
+}
+
+#container-checkout #order-summary p {
+  font-size: 1.4em;
+  color: var(--dark-blue);
+}
+
+#container-checkout .cart-item {
+  padding: 0;
+}
+
+#container-checkout #order-summary .cart-item .brand {
+  color: var(--turquoise);
+}
+
+#payment>div {
   display: flex;
   flex-direction: column;
   /* padding: 1rem; */
@@ -731,7 +775,7 @@ footer p a {
 
 .tool-detail-img {
   border: 2px solid var(--turquoise);
-  /* border-radius: 5rem; */
+  padding: 1.5em;
   max-height: 400px;
   width: 100%;
   object-fit: contain;
@@ -775,7 +819,7 @@ footer p a {
   margin-bottom: 2rem;
   color: var(--dark-blue);
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .tool-tags p,
@@ -783,8 +827,20 @@ footer p a {
   font-size: 0.9rem;
 }
 
-.back {
-  width: 11.6rem;
+.back-btn {
+  display: flex;
+  justify-content: space-between;
+  min-width: 100px;
+  max-width: 200px;
+  padding: .5em .5em;
+  border-bottom: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+  transition: .5s;
+}
+
+.back-btn:hover {
+  border-bottom: 5px solid var(--turquoise);
+  color: var(--turquoise);
 }
 
 /* ********************** Profile page ********************** */
@@ -879,7 +935,7 @@ footer p a {
   max-width: 500px;
 }
 
-#demo-creds > div {
+#demo-creds>div {
   border: 1px dashed black;
   padding: 1;
   line-height: 1.5rem;
@@ -888,6 +944,7 @@ footer p a {
 #demo-creds table {
   text-align: left;
 }
+
 #demo-creds table td,
 #demo-creds table th {
   padding: 1rem;
