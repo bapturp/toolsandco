@@ -6,32 +6,42 @@
       <h2>Order summary</h2>
       <section>
         {{#each reservedTools}}
-        <div class="cart-item">
-          <div class="cart-item-info">
-            <div class="tool-info">
-              <p class="brand">{{this.brand}}</p>
-              <p class="model">{{this.model}}</p>
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="tool-info">
+                <p class="brand">{{this.brand}}</p>
+                <p class="model">{{this.model}}</p>
+              </div>
+
             </div>
-
-
+            <div class="checkout-tool-price">
+              <p>{{this.duration}}</p>
+              <p>{{this.price_per_day}}€ per day</p>
+            </div>
           </div>
-          <div class="checkout-tool-price">
-            <p>{{this.duration}}</p>
-            <p>{{this.price_per_day}}€ per day</p>
-          </div>
-        </div>
         {{/each}}
         <div class="recap">
           <p>
-            Total: {{totalPrice}}€
+            Total:
+            {{totalPrice}}€
           </p>
         </div>
       </section>
     </div>
     <div id="billing-info" class="ck-box">
-      <h2>Biling info</h2>
-      <input type="text" name="address-1" id="address-1" placeholder="Address 1" />
-      <input type="text" name="address-2" id="address-2" placeholder="Address 2" />
+      <h2>Billing info</h2>
+      <input
+        type="text"
+        name="address-1"
+        id="address-1"
+        placeholder="Address 1"
+      />
+      <input
+        type="text"
+        name="address-2"
+        id="address-2"
+        placeholder="Address 2"
+      />
       <input type="text" name="zip-code" id="zip-code" placeholder="75011" />
       <input type="text" name="town" id="town" placeholder="Paris" />
       <input type="text" name="phone" id="phone" placeholder="06 12 34 31 75" />
@@ -48,11 +58,21 @@
       <div>
         <div class="payment-info w-100 d-flex">
           <label for="cardholdername">Card holder name:</label>
-          <input type="text" name="cardholdername" id="cardholdername" placeholder="Ada Lovelace" />
+          <input
+            type="text"
+            name="cardholdername"
+            id="cardholdername"
+            placeholder="Ada Lovelace"
+          />
         </div>
         <div class="payment-info w-100 d-flex">
           <label for="cardnumber">Card number:</label>
-          <input type="text" name="cardnumber" id="cardnumber" placeholder="1111-2222-3333-4444" />
+          <input
+            type="text"
+            name="cardnumber"
+            id="cardnumber"
+            placeholder="1111-2222-3333-4444"
+          />
         </div>
         <div class="payment-info w-100 d-flex">
           <label for="expdate">Expiration date:</label>
