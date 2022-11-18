@@ -1,11 +1,17 @@
 <section class="tool-page container">
-  <a href="{{previousUrl}}" class="back-btn"><i class="fa-solid fa-chevron-left"></i>
+  <a href="{{previousUrl}}" class="back-btn"><i
+      class="fa-solid fa-chevron-left"
+    ></i>
     <span>Back</span>
   </a>
 
   <div class="tool-details">
     <picture class="tool-detail-img-container">
-      <img class="tool-detail-img" src="{{tool.picture_url}}" alt="{{tool.model}}" />
+      <img
+        class="tool-detail-img"
+        src="{{tool.picture_url}}"
+        alt="{{tool.model}}"
+      />
     </picture>
     <div class="tool-titles">
       <h3>{{tool.brand}}</h3>
@@ -16,21 +22,22 @@
 
       <div class="tool-buttons">
         {{#if date.start}}
-        <form action="/tools/{{tool._id}}/addToCart" method="post">
-          <button class="btn btn-turquoise">Add To Cart <i class="fa-solid fa-cart-plus"></i></button>
-        </form>
+          <form action="/tools/{{tool._id}}/addToCart" method="post">
+            <button class="btn btn-turquoise">Add To Cart
+              <i class="fa-solid fa-cart-plus"></i></button>
+          </form>
         {{else}}
-        <form action="/tools/{{tool._id}}/addToCart" method="post">
-          <label for="start-date">From</label>
-          <input type="date" name="start-date" />
-          <label for="end-date">To</label>
-          <input type="date" name="end-date" />
-          <button class="btn btn-turquoise">Add to cart</button>
-        </form>
+          <form action="/tools/{{tool._id}}/addToCart" method="post">
+            <label for="start-date">From</label>
+            <input type="date" name="start-date" />
+            <label for="end-date">To</label>
+            <input type="date" name="end-date" />
+            <button class="btn btn-turquoise">Add to cart</button>
+          </form>
         {{/if}}
       </div>
       {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+        <p class="error">{{errorMessage}}</p>
       {{/if}}
       <div class="tool-characteristics">
         <div class="tool-description">
@@ -41,7 +48,7 @@
           <p>
             <span>Perfect for: </span>
             {{#each tool.use_case}}
-            {{this.name}}
+              {{this.name}}
             {{/each}}
           </p>
         </div>
