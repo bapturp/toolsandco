@@ -364,6 +364,19 @@ article#push-3 {
   transition: 1s ease-out;
 }
 
+.card picture {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card picture img {
+  max-height: 100%;
+}
+
+
 .tool-card.opaque {
   opacity: 1
 }
@@ -950,4 +963,214 @@ footer p a {
   padding: 1rem;
 }
 
-/* ********************** Cart ********************** */
+/* ********************** Responsive-ish ********************** */
+
+@media (width < 768px) {
+  .activities article {
+    width: 30%;
+  }
+
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header.home-nav h1 {
+    font-size: 4em;
+  }
+
+  header.reg-nav {
+    padding: .5em;
+    justify-content: space-between;
+  }
+
+  header.reg-nav h1 {
+    font-size: 1em;
+    ;
+  }
+
+  header .nav-buttons {
+    gap: .5em;
+  }
+
+  header .btn {
+    padding: .5em;
+    font-size: .9em;
+  }
+
+  #whats-the-plan {
+    font-size: 1.7em;
+  }
+
+  .home-search {
+    font-size: 1.5em;
+  }
+
+  .home-search * {
+    text-align: center;
+  }
+
+  .home-search .search-fields {
+    row-gap: .5em;
+  }
+
+  .home-search .search-fields>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #home-top #search-form .btn {
+    font-size: 1.3em;
+  }
+
+  .card {
+    width: 100%;
+    padding-bottom: 70px;
+  }
+
+  .card .overlayer {
+    transform: none;
+    height: 60px;
+    flex-direction: row;
+    padding: .5em;
+    justify-content: center;
+  }
+
+  body:not(.homepage) .card .overlayer {
+    justify-content: space-around;
+  }
+
+  .card .overlayer>* {
+    width: 50%;
+  }
+
+  .card .overlayer .btn {
+    padding: .4em;
+    text-align: center;
+  }
+
+  .card .overlayer form {
+    text-align: right
+  }
+
+  .card .overlayer .btn i {
+    display: none;
+  }
+
+  .results-list {
+    padding: 1em;
+    gap: 1em;
+  }
+
+  .reassurance {
+    gap: 2em;
+  }
+
+  .reassurance img {
+    max-height: 100px;
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about div {
+    width: 100%;
+    margin-top: 3em;
+  }
+
+  .search-bar {
+    padding: 100px 1em 1em 1em;
+  }
+
+  .search-bar #search-form {
+    flex-wrap: wrap;
+    column-gap: .5em;
+    row-gap: 1em;
+  }
+
+  .search-bar #search-form select {
+    width: calc(50% - .5em);
+  }
+
+  .tool-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 1em 0;
+  }
+
+  .tool-detail-img-container {
+    width: 100%;
+  }
+
+  .tool-detail img {
+    max-height: 300px;
+  }
+
+  .tool-titles {
+    width: 100%;
+    margin: 1em 2rem;
+  }
+
+  .tool-titles h2,
+  .tool-titles h3 {
+    font-size: 1.5em;
+  }
+
+  .cart-item picture {
+    display: none;
+  }
+
+  .cart-item-btn {
+    padding-top: 1em;
+    align-items: center;
+  }
+
+  .cart-list .recap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+  }
+
+  .cart-list .recap .btn {
+    font-size: 1.2em;
+  }
+
+  #demo-creds table td,
+  #demo-creds table th {
+    padding: .3em;
+  }
+
+  #container-checkout>form {
+    padding: .5em;
+  }
+
+  #container-checkout #order-summary p {
+    font-size: 1.2em;
+  }
+
+  #container-checkout .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 1em;
+  }
+
+  .payment-info {
+    flex-direction: column;
+  }
+
+  #place-order button {
+    font-size: 1.5em;
+  }
+
+  .profile-container {
+    margin: 0;
+  }
+
+  footer h2 {
+    font-size: 3em;
+  }
+}

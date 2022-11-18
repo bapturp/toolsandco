@@ -170,3 +170,18 @@ th {
   text-align: left;
   padding: 0.6em 0.4em;
 }
+
+
+/* Responsive */
+
+@media (width < 768px) {
+
+  .container {
+    padding: .5em;
+  }
+
+  .btn {
+    padding: .4em 1.5em;
+    font-size: .9em;
+  }
+}
