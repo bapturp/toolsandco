@@ -45,7 +45,7 @@ router.get("/:id/addToCart", async (req, res, next) => {
 });
 router.post("/:id/addToCart", async (req, res, next) => {
   const id = req.params.id;
-
+  res.locals.previousUrl = req.session.previousUrl;
   if (!req.session.date.start) {
     req.session.date.start = req.body["start-date"];
     req.session.date.end = req.body["end-date"];
@@ -55,20 +55,40 @@ router.post("/:id/addToCart", async (req, res, next) => {
     return;
   }
   const itemToCart = await Reservation.find({
-    $and: [
-      { tool: id },
-      { start_date: req.session.date.start },
-      { end_date: req.session.date.end },
+    $or: [
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.start } },
+          { end_date: { $gt: req.session.date.end } },
+        ],
+      },
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.start } },
+          { end_date: { $gt: req.session.date.start } },
+        ],
+      },
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.end } },
+          { end_date: { $gt: req.session.date.end } },
+        ],
+      },
     ],
   });
-  console.log(itemToCart);
-  if (itemToCart.length !== 0) {
+  if (itemToCart.length === 0) {
     req.session.cart.push(id);
     res.locals.cart = req.session.cart.length;
     return res.redirect("/cart");
   } else {
     const tool = await Tool.findById(id).populate("use_case");
-    return res.render("tool", { tool, errorMessage: "Tool unavailable..." });
+    return res.render("tool", {
+      tool,
+      errorMessage: "Tool unavailable a your dates...",
+    });
   }
 });
 

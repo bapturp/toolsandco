@@ -32,7 +32,7 @@ router.get("/", isLoggedIn, exposeUserInfo, async (req, res) => {
           return acc + price;
         }) * daysReserved;
       req.session.totalPrice = totalPrice;
-      console.log(reservedTools);
+      // console.log(reservedTools);
       return res.render("checkout", { reservedTools, totalPrice });
     } else {
       return res.render("checkout");
