@@ -55,7 +55,29 @@ router.post("/:id/addToCart", async (req, res, next) => {
     return;
   }
   const itemToCart = await Reservation.find({
-    $and: [{ tool: id }, { start_date: req.session.date.start }],
+    $or: [
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.start } },
+          { end_date: { $gt: req.session.date.end } },
+        ],
+      },
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.start } },
+          { end_date: { $gt: req.session.date.start } },
+        ],
+      },
+      {
+        $and: [
+          { tool: id },
+          { start_date: { $lt: req.session.date.end } },
+          { end_date: { $gt: req.session.date.end } },
+        ],
+      },
+    ],
   });
   if (itemToCart.length === 0) {
     req.session.cart.push(id);

@@ -41,20 +41,20 @@ router.get("/", getActualUrl, async (req, res, next) => {
         $or: [
           {
             $and: [
-              { start_date: { $lte: startDate } },
-              { end_date: { $gte: endDate } },
+              { start_date: { $lt: startDate } },
+              { end_date: { $gt: endDate } },
             ],
           }, // reservation over all selected period
           {
             $and: [
-              { start_date: { $lte: startDate } },
-              { end_date: { $gte: startDate } },
+              { start_date: { $lt: startDate } },
+              { end_date: { $gt: startDate } },
             ],
           }, // Start date of existing resa during selected period
           {
             $and: [
-              { start_date: { $lte: endDate } },
-              { end_date: { $gte: endDate } },
+              { start_date: { $lt: endDate } },
+              { end_date: { $gt: endDate } },
             ],
           }, // End date of existing resa during selected period
         ],
