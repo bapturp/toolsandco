@@ -2,9 +2,34 @@
 
 _Tools&Co gives people the ability to rent various tools and achieve their DIY dreams 🤩_
 
+<style>
+  a:hover {
+    color:red !important;
+  }
+
+  #screenshot {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  #screenshot img {
+    width: 100%;
+    object-position: top;
+    object-fit: cover;
+    transition: 1.5s ease-out;
+  }
+
+  #screenshot:hover img {
+    object-position: bottom
+  }
+</style>
+<div id="screenshot"><a href="https://toolsandco.onrender.com/"><img src="./toolsandco-screenshot.png"></a></div>
+
 ## [toolsandco.onrender.com](https://toolsandco.onrender.com/)
 
-Tools&Co is a FullStack Web application made by [@bapturp](https://github.com/bapturp) [@hugoviolas](https://github.com/hugoviolas) and [@inesza](https://github.com/inesza) during the [Ironhack Web Development Bootcamp](https://www.ironhack.com/en/web-development) in only **4 days** 🚀
+Tools&Co is a FullStack web application made by [@bapturp](https://github.com/bapturp) [@hugoviolas](https://github.com/hugoviolas) and [@inesza](https://github.com/inesza) during the [Ironhack Web Development Bootcamp](https://www.ironhack.com/en/web-development) in only **4 days** 🚀
 
 **Technologies used**
 
@@ -28,24 +53,22 @@ Install the following packages on your local machine:
 - node version 18
 - mongodb version 6
 
-### Clone this repo
-
-Clone this repo and `cd` into it.
+### Clone repo
 
 ```sh
-git clone <url>
-cd <dir_name>
+git clone https://github.com/bapturp/toolsandco.git
+cd toolsandco/
 ```
 
 ### Setup the .env file
 
-This project require some environment variables to run, it reads the file `.env` on startup. An example file is provided `.env.example`.
+This project requires some environment variables to run, it reads the file `.env` on startup. An example file is provided `.env.example`.
 
 **Environment variables:**
 
-- `PORT`: Port on which the the website is accessible,
-- `MONGODB_URI`: URI of the mongo database (i.e. `mongodb://127.0.0.1:27017/toolsharing`)
-- `SESSION_SECRET`: Secret used to sign the session ID cookie, [see session doc](https://www.npmjs.com/package/express-session#user-content-secret)
+- `PORT`: Port on which the the website is accessible.
+- `MONGODB_URI`: URI of the mongo database (i.e. `mongodb://127.0.0.1:27017/toolsharing`).
+- `SESSION_SECRET`: Secret used to sign the session ID cookie, [see session doc](https://www.npmjs.com/package/express-session#user-content-secret).
 - `CLOUDINARY_NAME`: Cloudinary name
 - `CLOUDINARY_KEY`: Cloudinary key
 - `CLOUDINARY_SECRET`: Cloudinary secret
@@ -58,7 +81,7 @@ npm install
 
 ### Seed the database
 
-Default data can be seed in the database with the following command.
+Default data can be seed in the database:
 
 ```sh
 npm run seed
