@@ -12,13 +12,10 @@ _Tools&Co gives people the ability to rent various tools and achieve their DIY d
     max-width: 500px;
     height: 300px;
     overflow: hidden;
-    position: relative;
   }
 
   #screenshot img {
     width: 100%;
-    position: absolute;
-    top: 0;
     object-position: top;
     object-fit: cover;
     transition: 1.5s ease-out;
