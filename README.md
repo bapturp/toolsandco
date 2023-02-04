@@ -1,10 +1,8 @@
-# Tools & co
+# [Tools & co](https://toolsandco-ycuc.onrender.com/)
 
 _Tools&Co gives people the ability to rent various tools and achieve their DIY dreams 🤩_
 
-<div id="screenshot"><a href="https://toolsandco.onrender.com/"><img src="./toolsandco-screenshot.png"></a></div>
-
-## [toolsandco.onrender.com](https://toolsandco.onrender.com/)
+<div id="screenshot"><a href="https://toolsandco-ycuc.onrender.com/"><img src="./toolsandco-screenshot.png"></a></div>
 
 Tools&Co is a FullStack web application made by [@bapturp](https://github.com/bapturp) [@hugoviolas](https://github.com/hugoviolas) and [@inesza](https://github.com/inesza) during the [Ironhack Web Development Bootcamp](https://www.ironhack.com/en/web-development) in only **4 days** 🚀
 
